@@ -1,2 +1,3 @@
+include ':ViewAdapt'
 include ':app'
-rootProject.name = "ViewAdapt"
+rootProject.name = "ViewAdaptProject"

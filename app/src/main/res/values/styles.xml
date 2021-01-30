@@ -5,6 +5,13 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="LayoutAdaptAttr">@style/test2</item>
+    </style>
+    <style name="test" parent="LayoutAdaptStyle">
+        <item name="uiAdaptEnable">true</item>
     </style>
 
+    <style name="test2">
+        <item name="uiAdaptEnable">true</item>
+    </style>
 </resources>

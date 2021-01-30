@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr format="reference" name="LayoutAdaptAttr"/>
+    <attr name="uiDesignWidth" format="integer"></attr>
+    <attr name="uiDesignHeight" format="integer"></attr>
+    <attr name="uiAdaptUseWidth" format="boolean"></attr>
+    <attr name="uiAdaptEnable" format="boolean"></attr>
+    <declare-styleable name="zhongruiAdapt">
+        <attr name="uiDesignWidth"></attr>
+        <attr name="uiDesignHeight"></attr>
+        <attr name="uiAdaptUseWidth"></attr>
+        <attr name="uiAdaptEnable"></attr>
+    </declare-styleable>
+    <declare-styleable name="FrameLayoutAdapt">
+        <attr name="uiDesignWidth"></attr>
+        <attr name="uiDesignHeight"></attr>
+        <attr name="uiAdaptUseWidth"></attr>
+        <attr name="uiAdaptEnable"></attr>
+    </declare-styleable>
+</resources>
