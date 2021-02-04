@@ -1,20 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr format="reference" name="LayoutAdaptAttr"/>
+    <attr name="LayoutAdaptAttr" format="reference" />
     <attr name="uiDesignWidth" format="integer"></attr>
     <attr name="uiDesignHeight" format="integer"></attr>
-    <attr name="uiAdaptUseWidth" format="boolean"></attr>
+    <attr name="uiAdaptWidth" format="boolean"></attr>
     <attr name="uiAdaptEnable" format="boolean"></attr>
     <declare-styleable name="zhongruiAdapt">
+        <attr name="layout_widthAdapt"></attr>
+        <attr name="layout_heightAdapt"></attr>
         <attr name="uiDesignWidth"></attr>
         <attr name="uiDesignHeight"></attr>
-        <attr name="uiAdaptUseWidth"></attr>
+        <attr name="uiAdaptWidth"></attr>
         <attr name="uiAdaptEnable"></attr>
     </declare-styleable>
     <declare-styleable name="FrameLayoutAdapt">
+        <attr name="layout_widthAdapt"></attr>
+        <attr name="layout_heightAdapt"></attr>
         <attr name="uiDesignWidth"></attr>
         <attr name="uiDesignHeight"></attr>
-        <attr name="uiAdaptUseWidth"></attr>
+        <attr name="uiAdaptWidth"></attr>
         <attr name="uiAdaptEnable"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="LinearLayoutAdapt">
+        <attr name="layout_widthAdapt"></attr>
+        <attr name="layout_heightAdapt"></attr>
+        <attr name="uiDesignWidth"></attr>
+        <attr name="uiDesignHeight"></attr>
+        <attr name="uiAdaptWidth"></attr>
+        <attr name="uiAdaptEnable"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="RelativeLayoutAdapt">
+        <attr name="layout_widthAdapt"></attr>
+        <attr name="layout_heightAdapt"></attr>
+        <attr name="uiDesignWidth"></attr>
+        <attr name="uiDesignHeight"></attr>
+        <attr name="uiAdaptWidth"></attr>
+        <attr name="uiAdaptEnable"></attr>
+    </declare-styleable>
+
+
+    <attr name="layout_widthAdapt" format="dimension"></attr>
+    <attr name="layout_heightAdapt" format="dimension"></attr>
+    <attr name="layout_marginAdapt" format="dimension" />
+    <attr name="layout_marginLeftAdapt" format="dimension" />
+    <attr name="layout_marginTopAdapt" format="dimension" />
+    <attr name="layout_marginRightAdapt" format="dimension" />
+    <attr name="layout_marginBottomAdapt" format="dimension" />
+    <attr name="layout_marginStartAdapt" format="dimension" />
+    <attr name="layout_marginEndAdapt" format="dimension" />
+
+    <declare-styleable name="FrameLayoutAdapt_Layout">
+        <attr name="layout_widthAdapt"></attr>
+        <attr name="layout_heightAdapt"></attr>
+        <attr name="layout_marginAdapt" />
+        <attr name="layout_marginLeftAdapt" />
+        <attr name="layout_marginTopAdapt" />
+        <attr name="layout_marginRightAdapt" />
+        <attr name="layout_marginBottomAdapt" />
+        <attr name="layout_marginStartAdapt" />
+        <attr name="layout_marginEndAdapt" />
+    </declare-styleable>
+    <declare-styleable name="LinearLayoutAdapt_Layout">
+        <attr name="layout_widthAdapt"></attr>
+        <attr name="layout_heightAdapt"></attr>
+        <attr name="layout_marginAdapt" />
+        <attr name="layout_marginLeftAdapt" />
+        <attr name="layout_marginTopAdapt" />
+        <attr name="layout_marginRightAdapt" />
+        <attr name="layout_marginBottomAdapt" />
+        <attr name="layout_marginStartAdapt" />
+        <attr name="layout_marginEndAdapt" />
+    </declare-styleable>
+    <declare-styleable name="RelativeLayoutAdapt_Layout">
+        <attr name="layout_widthAdapt"></attr>
+        <attr name="layout_heightAdapt"></attr>
+        <attr name="layout_marginAdapt" />
+        <attr name="layout_marginLeftAdapt" />
+        <attr name="layout_marginTopAdapt" />
+        <attr name="layout_marginRightAdapt" />
+        <attr name="layout_marginBottomAdapt" />
+        <attr name="layout_marginStartAdapt" />
+        <attr name="layout_marginEndAdapt" />
+    </declare-styleable>
+    <declare-styleable name="LayoutAdapt_Layout">
+        <attr name="layout_widthAdapt"></attr>
+        <attr name="layout_heightAdapt"></attr>
+        <attr name="layout_marginAdapt" />
+        <attr name="layout_marginLeftAdapt" />
+        <attr name="layout_marginTopAdapt" />
+        <attr name="layout_marginRightAdapt" />
+        <attr name="layout_marginBottomAdapt" />
+        <attr name="layout_marginStartAdapt" />
+        <attr name="layout_marginEndAdapt" />
     </declare-styleable>
 </resources>

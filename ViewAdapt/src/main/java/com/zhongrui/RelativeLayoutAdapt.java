@@ -7,31 +7,31 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 
 import static android.os.Build.VERSION_CODES.JELLY_BEAN_MR1;
 
-public class FrameLayoutAdapt extends FrameLayout implements LayoutAdaptHelper.AdaptView {
+public class RelativeLayoutAdapt extends RelativeLayout {
     private LayoutAdaptHelper mHelper = new LayoutAdaptHelper(this);
 
     /*需要判断状态栏是否隐藏*/
-    public FrameLayoutAdapt(@NonNull Context context) {
+    public RelativeLayoutAdapt(@NonNull Context context) {
         super(context);
         init(null, R.attr.LayoutAdaptAttr, R.style.LayoutAdaptStyle);
     }
 
-    public FrameLayoutAdapt(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public RelativeLayoutAdapt(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(attrs, R.attr.LayoutAdaptAttr, R.style.LayoutAdaptStyle);
     }
 
-    public FrameLayoutAdapt(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public RelativeLayoutAdapt(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(attrs, defStyleAttr, R.style.LayoutAdaptStyle);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    public FrameLayoutAdapt(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public RelativeLayoutAdapt(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(attrs, defStyleAttr, defStyleRes);
     }
@@ -85,7 +85,7 @@ public class FrameLayoutAdapt extends FrameLayout implements LayoutAdaptHelper.A
 
     @Override
     protected LayoutParams generateDefaultLayoutParams() {
-        return new LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT);
+        return new LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
     }
 
     @Override
@@ -105,7 +105,7 @@ public class FrameLayoutAdapt extends FrameLayout implements LayoutAdaptHelper.A
         return new LayoutParams(lp);
     }
 
-    public static class LayoutParams extends FrameLayout.LayoutParams implements LayoutAdaptHelper.LayoutAdaptParams {
+    public static class LayoutParams extends RelativeLayout.LayoutParams implements LayoutAdaptHelper.LayoutAdaptParams {
         private LayoutParamsInfo info;
 
         public LayoutParams(@NonNull Context c, @Nullable AttributeSet attrs) {
@@ -113,28 +113,25 @@ public class FrameLayoutAdapt extends FrameLayout implements LayoutAdaptHelper.A
             getLayoutAdaptInfo().getAttributeSet(c, attrs);
         }
 
-        public LayoutParams(int width, int height) {
-            super(width, height);
+        public LayoutParams(int w, int h) {
+            super(w, h);
         }
 
-        public LayoutParams(int width, int height, int gravity) {
-            super(width, height, gravity);
-        }
-
-        public LayoutParams(@NonNull ViewGroup.LayoutParams source) {
+        public LayoutParams(ViewGroup.LayoutParams source) {
             super(source);
         }
 
-        public LayoutParams(@NonNull MarginLayoutParams source) {
+        public LayoutParams(MarginLayoutParams source) {
             super(source);
         }
 
         @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-        public LayoutParams(FrameLayout.LayoutParams source) {
+        public LayoutParams(RelativeLayout.LayoutParams source) {
             super(source);
         }
+
         @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-        public LayoutParams(@NonNull LayoutParams source) {
+        public LayoutParams(LayoutParams source) {
             super(source);
             info = source.info;
         }

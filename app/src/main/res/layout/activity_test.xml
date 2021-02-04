@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TestActivity">
+
+    <com.zhongrui.FrameLayoutAdapt
+        android:id="@+id/fl"
+        style="@style/test3"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:background="@color/colorPrimary"
+        app:layout_widthAdapt="1000px"
+        app:uiAdaptEnable="true"
+        app:uiAdaptWidth="true"
+        app:uiDesignWidth="1000">
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:text="TextView"
+            app:layout_widthAdapt="500px" />
+
+        <TextView
+            android:layout_width="500px"
+            android:layout_height="100dp"
+            android:layout_marginTop="100dp"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:text="TextView2"
+            app:layout_marginLeftAdapt="500px"
+            app:layout_widthAdapt="500px" />
+    </com.zhongrui.FrameLayoutAdapt>
+
+    <com.zhongrui.RelativeLayoutAdapt
+        style="@style/test3"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimary"
+        app:uiDesignWidth="1000">
+
+        <TextView
+            android:layout_width="100px"
+            android:layout_height="100dp"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:text="TextView"
+            app:layout_widthAdapt="500px" />
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="500px"
+            android:layout_height="100dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:text="TextView2"
+            app:layout_widthAdapt="500px" />
+    </com.zhongrui.RelativeLayoutAdapt>
+
+    <com.zhongrui.LinearLayoutAdapt
+        style="@style/test3"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical"
+        app:uiDesignWidth="1000">
+
+        <TextView
+            android:layout_width="100px"
+            android:layout_height="100dp"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:text="TextView"
+            app:layout_widthAdapt="500px" />
+
+        <TextView
+            android:layout_width="500px"
+            android:layout_height="100dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:text="TextView2"
+            app:layout_marginLeftAdapt="500px"
+            app:layout_widthAdapt="500px" />
+    </com.zhongrui.LinearLayoutAdapt>
+</LinearLayout>
