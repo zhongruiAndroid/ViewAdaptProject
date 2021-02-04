@@ -13,7 +13,7 @@
         android:layout_width="300dp"
         android:layout_height="200dp"
         android:background="@color/colorPrimary"
-        app:layout_widthAdapt="1000px"
+        app:adapt_width="1000px"
         app:uiAdaptEnable="true"
         app:uiAdaptWidth="true"
         app:uiDesignWidth="1000">
@@ -25,7 +25,7 @@
             android:background="@color/colorAccent"
             android:gravity="center"
             android:text="TextView"
-            app:layout_widthAdapt="500px" />
+            app:adapt_width="500px" />
 
         <TextView
             android:layout_width="500px"
@@ -34,8 +34,8 @@
             android:background="@color/colorAccent"
             android:gravity="center"
             android:text="TextView2"
-            app:layout_marginLeftAdapt="500px"
-            app:layout_widthAdapt="500px" />
+            app:adapt_marginLeft="500px"
+            app:adapt_width="500px" />
     </com.zhongrui.FrameLayoutAdapt>
 
     <com.zhongrui.RelativeLayoutAdapt
@@ -52,7 +52,7 @@
             android:background="@color/colorAccent"
             android:gravity="center"
             android:text="TextView"
-            app:layout_widthAdapt="500px" />
+            app:adapt_width="500px" />
 
         <TextView
             android:id="@+id/tv2"
@@ -63,7 +63,7 @@
             android:background="@color/colorAccent"
             android:gravity="center"
             android:text="TextView2"
-            app:layout_widthAdapt="500px" />
+            app:adapt_width="500px" />
     </com.zhongrui.RelativeLayoutAdapt>
 
     <com.zhongrui.LinearLayoutAdapt
@@ -81,7 +81,7 @@
             android:background="@color/colorAccent"
             android:gravity="center"
             android:text="TextView"
-            app:layout_widthAdapt="500px" />
+            app:adapt_width="500px" />
 
         <TextView
             android:layout_width="500px"
@@ -91,7 +91,7 @@
             android:background="@color/colorAccent"
             android:gravity="center"
             android:text="TextView2"
-            app:layout_marginLeftAdapt="500px"
-            app:layout_widthAdapt="500px" />
+            app:adapt_marginLeft="500px"
+            app:adapt_width="500px" />
     </com.zhongrui.LinearLayoutAdapt>
 </LinearLayout>

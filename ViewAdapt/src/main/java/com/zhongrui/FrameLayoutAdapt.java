@@ -55,7 +55,7 @@ public class FrameLayoutAdapt extends FrameLayout implements LayoutAdaptHelper.A
         if (getParent() == null) {
             return;
         }
-        /*如果XXXLayoutAdapt的父view是系统ViewGroup,并且自身有设置layout_widthAdapt或者layout_heightAdapt，则自己适配自己的宽高*/
+        /*如果XXXLayoutAdapt的父view是系统ViewGroup,并且自身有设置adapt_width或者adapt_height，则自己适配自己的宽高*/
         if (!(getParent() instanceof LayoutAdaptHelper.AdaptView)) {
             int selfWidth = mHelper.selfWidth;
             int selfHeight = mHelper.selfHeight;

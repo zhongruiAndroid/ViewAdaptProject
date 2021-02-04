@@ -35,8 +35,8 @@ public class LayoutAdaptHelper {
         uiAdaptWidth = typedArray.getBoolean(R.styleable.zhongruiAdapt_uiAdaptWidth, true);
         uiAdaptEnable = typedArray.getBoolean(R.styleable.zhongruiAdapt_uiAdaptEnable, true);
 
-        selfWidth = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_layout_widthAdapt, -1);
-        selfHeight = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_layout_heightAdapt, -1);
+        selfWidth = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_width, -1);
+        selfHeight = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_height, -1);
         typedArray.recycle();
     }
 
