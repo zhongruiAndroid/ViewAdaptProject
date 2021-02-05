@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 
 import static android.os.Build.VERSION_CODES.JELLY_BEAN_MR1;
 
-public class RelativeLayoutAdapt extends RelativeLayout {
+public class RelativeLayoutAdapt extends RelativeLayout implements LayoutAdaptHelper.AdaptView {
     private LayoutAdaptHelper mHelper = new LayoutAdaptHelper(this);
 
     /*需要判断状态栏是否隐藏*/
