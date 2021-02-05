@@ -18,16 +18,16 @@
     <attr name="adapt_paddingEnd" format="dimension"></attr>
 
     <declare-styleable name="zhongruiAdapt">
-        <attr name="adapt_width"></attr>
-        <attr name="adapt_height"></attr>
+        <attr name="layout_adapt_width"></attr>
+        <attr name="layout_adapt_height"></attr>
         <attr name="uiDesignWidth"></attr>
         <attr name="uiDesignHeight"></attr>
         <attr name="uiAdaptWidth"></attr>
         <attr name="uiAdaptEnable"></attr>
     </declare-styleable>
     <declare-styleable name="FrameLayoutAdapt">
-        <attr name="adapt_width"></attr>
-        <attr name="adapt_height"></attr>
+        <attr name="layout_adapt_width"></attr>
+        <attr name="layout_adapt_height"></attr>
         <attr name="uiDesignWidth"></attr>
         <attr name="uiDesignHeight"></attr>
         <attr name="uiAdaptWidth"></attr>
@@ -45,8 +45,8 @@
     </declare-styleable>
 
     <declare-styleable name="LinearLayoutAdapt">
-        <attr name="adapt_width"></attr>
-        <attr name="adapt_height"></attr>
+        <attr name="layout_adapt_width"></attr>
+        <attr name="layout_adapt_height"></attr>
         <attr name="uiDesignWidth"></attr>
         <attr name="uiDesignHeight"></attr>
         <attr name="uiAdaptWidth"></attr>
@@ -63,8 +63,8 @@
     </declare-styleable>
 
     <declare-styleable name="RelativeLayoutAdapt">
-        <attr name="adapt_width"></attr>
-        <attr name="adapt_height"></attr>
+        <attr name="layout_adapt_width"></attr>
+        <attr name="layout_adapt_height"></attr>
         <attr name="uiDesignWidth"></attr>
         <attr name="uiDesignHeight"></attr>
         <attr name="uiAdaptWidth"></attr>
@@ -81,58 +81,58 @@
     </declare-styleable>
 
 
-    <attr name="adapt_width" format="dimension"></attr>
-    <attr name="adapt_height" format="dimension"></attr>
-    <attr name="adapt_margin" format="dimension" />
-    <attr name="adapt_marginLeft" format="dimension" />
-    <attr name="adapt_marginTop" format="dimension" />
-    <attr name="adapt_marginRight" format="dimension" />
-    <attr name="adapt_marginBottom" format="dimension" />
-    <attr name="adapt_marginStart" format="dimension" />
-    <attr name="adapt_marginEnd" format="dimension" />
+    <attr name="layout_adapt_width" format="dimension"></attr>
+    <attr name="layout_adapt_height" format="dimension"></attr>
+    <attr name="layout_adapt_margin" format="dimension" />
+    <attr name="layout_adapt_marginLeft" format="dimension" />
+    <attr name="layout_adapt_marginTop" format="dimension" />
+    <attr name="layout_adapt_marginRight" format="dimension" />
+    <attr name="layout_adapt_marginBottom" format="dimension" />
+    <attr name="layout_adapt_marginStart" format="dimension" />
+    <attr name="layout_adapt_marginEnd" format="dimension" />
 
     <declare-styleable name="LayoutAdapt_Layout">
-        <attr name="adapt_width"></attr>
-        <attr name="adapt_height"></attr>
-        <attr name="adapt_margin" />
-        <attr name="adapt_marginLeft" />
-        <attr name="adapt_marginTop" />
-        <attr name="adapt_marginRight" />
-        <attr name="adapt_marginBottom" />
-        <attr name="adapt_marginStart" />
-        <attr name="adapt_marginEnd" />
+        <attr name="layout_adapt_width"></attr>
+        <attr name="layout_adapt_height"></attr>
+        <attr name="layout_adapt_margin" />
+        <attr name="layout_adapt_marginLeft" />
+        <attr name="layout_adapt_marginTop" />
+        <attr name="layout_adapt_marginRight" />
+        <attr name="layout_adapt_marginBottom" />
+        <attr name="layout_adapt_marginStart" />
+        <attr name="layout_adapt_marginEnd" />
     </declare-styleable>
     <declare-styleable name="FrameLayoutAdapt_Layout">
-        <attr name="adapt_width"></attr>
-        <attr name="adapt_height"></attr>
-        <attr name="adapt_margin" />
-        <attr name="adapt_marginLeft" />
-        <attr name="adapt_marginTop" />
-        <attr name="adapt_marginRight" />
-        <attr name="adapt_marginBottom" />
-        <attr name="adapt_marginStart" />
-        <attr name="adapt_marginEnd" />
+        <attr name="layout_adapt_width"></attr>
+        <attr name="layout_adapt_height"></attr>
+        <attr name="layout_adapt_margin" />
+        <attr name="layout_adapt_marginLeft" />
+        <attr name="layout_adapt_marginTop" />
+        <attr name="layout_adapt_marginRight" />
+        <attr name="layout_adapt_marginBottom" />
+        <attr name="layout_adapt_marginStart" />
+        <attr name="layout_adapt_marginEnd" />
     </declare-styleable>
     <declare-styleable name="LinearLayoutAdapt_Layout">
-        <attr name="adapt_width"></attr>
-        <attr name="adapt_height"></attr>
-        <attr name="adapt_margin" />
-        <attr name="adapt_marginLeft" />
-        <attr name="adapt_marginTop" />
-        <attr name="adapt_marginRight" />
-        <attr name="adapt_marginBottom" />
-        <attr name="adapt_marginStart" />
-        <attr name="adapt_marginEnd" />
+        <attr name="layout_adapt_width"></attr>
+        <attr name="layout_adapt_height"></attr>
+        <attr name="layout_adapt_margin" />
+        <attr name="layout_adapt_marginLeft" />
+        <attr name="layout_adapt_marginTop" />
+        <attr name="layout_adapt_marginRight" />
+        <attr name="layout_adapt_marginBottom" />
+        <attr name="layout_adapt_marginStart" />
+        <attr name="layout_adapt_marginEnd" />
     </declare-styleable>
     <declare-styleable name="RelativeLayoutAdapt_Layout">
-        <attr name="adapt_width"></attr>
-        <attr name="adapt_height"></attr>
-        <attr name="adapt_margin" />
-        <attr name="adapt_marginLeft" />
-        <attr name="adapt_marginTop" />
-        <attr name="adapt_marginRight" />
-        <attr name="adapt_marginBottom" />
-        <attr name="adapt_marginStart" />
-        <attr name="adapt_marginEnd" />
+        <attr name="layout_adapt_width"></attr>
+        <attr name="layout_adapt_height"></attr>
+        <attr name="layout_adapt_margin" />
+        <attr name="layout_adapt_marginLeft" />
+        <attr name="layout_adapt_marginTop" />
+        <attr name="layout_adapt_marginRight" />
+        <attr name="layout_adapt_marginBottom" />
+        <attr name="layout_adapt_marginStart" />
+        <attr name="layout_adapt_marginEnd" />
     </declare-styleable>
 </resources>
