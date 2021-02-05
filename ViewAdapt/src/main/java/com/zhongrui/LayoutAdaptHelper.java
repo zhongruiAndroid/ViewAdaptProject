@@ -97,23 +97,40 @@ public class LayoutAdaptHelper {
 
     public void obtainStyledAttributesForView(View view, TypedArray typedArray) {
         if (view instanceof AdaptLayout) {
-            adapt_padding = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_padding, 0);
-            adapt_paddingHorizontal = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingHorizontal, adapt_padding);
-            adapt_paddingVertical = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingVertical, adapt_padding);
-            adapt_paddingLeft = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingLeft, adapt_paddingHorizontal);
-            adapt_paddingTop = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingTop, adapt_paddingVertical);
-            adapt_paddingRight = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingRight, adapt_paddingHorizontal);
-            adapt_paddingBottom = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingBottom, adapt_paddingVertical);
+            adapt_padding = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_padding, -1);
+            if (adapt_padding >= 0) {
+                adapt_paddingHorizontal = adapt_padding;
+                adapt_paddingVertical = adapt_padding;
+                adapt_paddingLeft = adapt_padding;
+                adapt_paddingTop = adapt_padding;
+                adapt_paddingRight = adapt_padding;
+                adapt_paddingBottom = adapt_padding;
 
-            adapt_paddingStart = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingStart, adapt_padding);
-            adapt_paddingEnd = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingEnd, adapt_padding);
-            if (adapt_paddingLeft <= 0 && adapt_padding <= 0) {
-                adapt_paddingLeft = adapt_paddingStart;
-            }
-            if (adapt_paddingRight <= 0 && adapt_padding <= 0) {
-                adapt_paddingRight = adapt_paddingEnd;
+                if (Build.VERSION.SDK_INT >= JELLY_BEAN_MR1) {
+                    adapt_paddingStart = adapt_padding;
+                    adapt_paddingEnd = adapt_padding;
+                }
+            } else {
+                adapt_paddingHorizontal = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingHorizontal, 0);
+                adapt_paddingVertical = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingVertical, 0);
+                adapt_paddingLeft = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingLeft, adapt_paddingHorizontal);
+                adapt_paddingTop = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingTop, adapt_paddingVertical);
+                adapt_paddingRight = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingRight, adapt_paddingHorizontal);
+                adapt_paddingBottom = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingBottom, adapt_paddingVertical);
+
             }
 
+            if (Build.VERSION.SDK_INT >= JELLY_BEAN_MR1) {
+                adapt_paddingStart = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingStart, -1);
+                adapt_paddingEnd = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingEnd, -1);
+
+                if (adapt_paddingStart>=0) {
+                    adapt_paddingLeft = adapt_paddingStart;
+                }
+                if (adapt_paddingEnd>=0) {
+                    adapt_paddingRight = adapt_paddingEnd;
+                }
+            }
 
         }
     }

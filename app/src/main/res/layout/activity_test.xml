@@ -32,8 +32,11 @@
             android:layout_height="100dp"
             android:layout_marginTop="100dp"
             android:background="@color/colorAccent"
-            android:gravity="center"
             android:text="TextView2"
+            android:paddingHorizontal="20dp"
+            android:paddingLeft="10dp"
+            android:paddingStart="40dp"
+            android:padding="4dp"
             app:layout_adapt_marginLeft="500px"
             app:layout_adapt_width="500px" />
     </com.zhongrui.FrameLayoutAdapt>
@@ -51,7 +54,9 @@
             android:layout_height="100dp"
             android:background="@color/colorAccent"
             android:text="TextView"
-            app:adapt_paddingLeft="200px"
+            app:adapt_paddingLeft="100px"
+            app:adapt_padding="10px"
+            app:adapt_paddingStart="50px"
             app:layout_adapt_width="500px" />
 
         <TextView
