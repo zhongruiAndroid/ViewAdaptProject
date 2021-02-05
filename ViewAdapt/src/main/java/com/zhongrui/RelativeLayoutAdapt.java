@@ -37,7 +37,7 @@ public class RelativeLayoutAdapt extends RelativeLayout {
     }
 
     private void init(AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        mHelper.obtainStyledAttributes(getContext(), attrs, defStyleAttr, defStyleRes);
+        mHelper.obtainStyledAttributes(this,getContext(), attrs, defStyleAttr, defStyleRes);
     }
 
     @Override

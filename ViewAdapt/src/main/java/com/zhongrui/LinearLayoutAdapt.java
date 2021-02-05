@@ -37,7 +37,7 @@ public class LinearLayoutAdapt extends LinearLayout implements LayoutAdaptHelper
     }
 
     private void init(AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        mHelper.obtainStyledAttributes(getContext(), attrs, defStyleAttr, defStyleRes);
+        mHelper.obtainStyledAttributes(this,getContext(), attrs, defStyleAttr, defStyleRes);
     }
 
     @Override

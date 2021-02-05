@@ -24,6 +24,17 @@
         <attr name="uiDesignHeight"></attr>
         <attr name="uiAdaptWidth"></attr>
         <attr name="uiAdaptEnable"></attr>
+
+
+        <attr name="adapt_padding"></attr>
+        <attr name="adapt_paddingHorizontal"></attr>
+        <attr name="adapt_paddingVertical"></attr>
+        <attr name="adapt_paddingLeft"></attr>
+        <attr name="adapt_paddingTop"></attr>
+        <attr name="adapt_paddingRight"></attr>
+        <attr name="adapt_paddingBottom"></attr>
+        <attr name="adapt_paddingStart"></attr>
+        <attr name="adapt_paddingEnd"></attr>
     </declare-styleable>
     <declare-styleable name="FrameLayoutAdapt">
         <attr name="layout_adapt_width"></attr>
