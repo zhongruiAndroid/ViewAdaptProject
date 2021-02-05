@@ -1,9 +1,7 @@
 package com.zhongrui;
 
-import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
-import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v4.view.MarginLayoutParamsCompat;
 import android.util.AttributeSet;
@@ -13,10 +11,15 @@ import android.view.ViewGroup;
 import static android.os.Build.VERSION_CODES.JELLY_BEAN_MR1;
 
 public class LayoutAdaptHelper {
-    public interface AdaptView {
+    public interface AdaptLayout {
         void setPaddingAdapt(int left, int top, int right, int bottom);
+
         @RequiresApi(api = JELLY_BEAN_MR1)
         void setPaddingRelativeAdapt(int start, int top, int end, int bottom);
+    }
+
+    public interface AdaptView extends AdaptLayout {
+        void setUiDesign(View view, int uiWidth, int uiHeight, boolean useAdaptWidth, boolean adaptEnable);
     }
 
     public interface LayoutAdaptParams {
@@ -41,8 +44,23 @@ public class LayoutAdaptHelper {
     public int adapt_paddingStart;
     public int adapt_paddingEnd;
 
-    public void obtainStyledAttributes(View view, Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.zhongruiAdapt, defStyleAttr, defStyleRes);
+
+    public void init(View view, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        if (view == null) {
+            return;
+        }
+        if (view instanceof ViewGroup) {
+            obtainStyledAttributes(view, attrs, defStyleAttr, defStyleRes);
+        } else {
+            obtainStyledAttributesForView(view, attrs, defStyleAttr, defStyleRes);
+        }
+    }
+
+    private void obtainStyledAttributes(View view, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        if (view == null) {
+            return;
+        }
+        TypedArray typedArray = view.getContext().obtainStyledAttributes(attrs, R.styleable.zhongruiAdapt, defStyleAttr, defStyleRes);
         uiDesignWidth = typedArray.getInt(R.styleable.zhongruiAdapt_uiDesignWidth, 0);
         uiDesignHeight = typedArray.getInt(R.styleable.zhongruiAdapt_uiDesignHeight, 0);
         uiAdaptWidth = typedArray.getBoolean(R.styleable.zhongruiAdapt_uiAdaptWidth, true);
@@ -51,31 +69,60 @@ public class LayoutAdaptHelper {
         selfWidth = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_layout_adapt_width, -1);
         selfHeight = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_layout_adapt_height, -1);
 
+        obtainStyledAttributesForView(view, typedArray);
 
-        adapt_padding = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_padding, 0);
-        adapt_paddingHorizontal = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingHorizontal, adapt_padding);
-        adapt_paddingVertical = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingVertical, adapt_padding);
-        adapt_paddingLeft = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingLeft, adapt_paddingHorizontal);
-        adapt_paddingTop = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingTop, adapt_paddingVertical);
-        adapt_paddingRight = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingRight, adapt_paddingHorizontal);
-        adapt_paddingBottom = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingBottom, adapt_paddingVertical);
-
-        adapt_paddingStart = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingStart, adapt_padding);
-        adapt_paddingEnd = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingEnd, adapt_padding);
-        if (adapt_paddingLeft <= 0 && adapt_padding <= 0) {
-            adapt_paddingLeft = adapt_paddingStart;
-        }
-        if (adapt_paddingRight <= 0 && adapt_padding <= 0) {
-            adapt_paddingRight = adapt_paddingEnd;
-        }
         typedArray.recycle();
 
-        if (view instanceof AdaptView) {
-            if (Build.VERSION.SDK_INT >= JELLY_BEAN_MR1) {
-                ((AdaptView)view).setPaddingRelativeAdapt(adapt_paddingLeft, adapt_paddingTop, adapt_paddingRight, adapt_paddingBottom);
-            } else {
-                ((AdaptView)view).setPaddingAdapt(adapt_paddingLeft, adapt_paddingTop, adapt_paddingRight, adapt_paddingBottom);
+
+    }
+
+    private void obtainStyledAttributesForView(View view, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        if (view == null) {
+            return;
+        }
+        TypedArray typedArray = view.getContext().obtainStyledAttributes(attrs, R.styleable.zhongruiAdapt, defStyleAttr, defStyleRes);
+        obtainStyledAttributesForView(view, typedArray);
+        typedArray.recycle();
+    }
+
+    public void setUiDesign(View view, int uiWidth, int uiHeight, boolean useAdaptWidth, boolean adaptEnable) {
+        uiDesignWidth = uiWidth;
+        uiDesignHeight = uiHeight;
+        uiAdaptWidth = useAdaptWidth;
+        uiAdaptEnable = adaptEnable;
+        if (canUseAdapt()) {
+            setPaddingAdapt(view);
+        }
+    }
+
+    public void obtainStyledAttributesForView(View view, TypedArray typedArray) {
+        if (view instanceof AdaptLayout) {
+            adapt_padding = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_padding, 0);
+            adapt_paddingHorizontal = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingHorizontal, adapt_padding);
+            adapt_paddingVertical = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingVertical, adapt_padding);
+            adapt_paddingLeft = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingLeft, adapt_paddingHorizontal);
+            adapt_paddingTop = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingTop, adapt_paddingVertical);
+            adapt_paddingRight = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingRight, adapt_paddingHorizontal);
+            adapt_paddingBottom = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingBottom, adapt_paddingVertical);
+
+            adapt_paddingStart = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingStart, adapt_padding);
+            adapt_paddingEnd = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingEnd, adapt_padding);
+            if (adapt_paddingLeft <= 0 && adapt_padding <= 0) {
+                adapt_paddingLeft = adapt_paddingStart;
             }
+            if (adapt_paddingRight <= 0 && adapt_padding <= 0) {
+                adapt_paddingRight = adapt_paddingEnd;
+            }
+
+
+        }
+    }
+
+    private void setPaddingAdapt(View view) {
+        if (Build.VERSION.SDK_INT >= JELLY_BEAN_MR1) {
+            ((AdaptLayout) view).setPaddingRelativeAdapt(adapt_paddingLeft, adapt_paddingTop, adapt_paddingRight, adapt_paddingBottom);
+        } else {
+            ((AdaptLayout) view).setPaddingAdapt(adapt_paddingLeft, adapt_paddingTop, adapt_paddingRight, adapt_paddingBottom);
         }
     }
 
@@ -95,18 +142,17 @@ public class LayoutAdaptHelper {
         return false;
     }
 
-    private final ViewGroup mHost;
-
-    public LayoutAdaptHelper(@NonNull ViewGroup host) {
-        if (host == null) {
+    public void adjustChildren(ViewGroup mHost) {
+        if (mHost == null) {
             throw new IllegalArgumentException("host must be non-null");
         }
-        mHost = host;
-    }
-
-    public void adjustChildren() {
         for (int i = 0, N = mHost.getChildCount(); i < N; i++) {
             View view = mHost.getChildAt(i);
+            if (view instanceof LayoutAdaptHelper.AdaptView) {
+                /*将viewgroup设置的ui设计尺寸传给子view*/
+                /*view需要适配padding*/
+                ((LayoutAdaptHelper.AdaptView) view).setUiDesign(view, uiDesignWidth, uiDesignHeight, uiAdaptWidth, uiAdaptEnable);
+            }
             ViewGroup.LayoutParams params = view.getLayoutParams();
             if (params instanceof LayoutAdaptHelper.LayoutAdaptParams) {
                 LayoutParamsInfo layoutAdaptInfo = ((LayoutAdaptParams) params).getLayoutAdaptInfo();

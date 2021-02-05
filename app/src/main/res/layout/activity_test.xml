@@ -45,23 +45,24 @@
         android:layout_marginTop="20dp"
         android:background="@color/colorPrimary"
         app:uiDesignWidth="1000">
-        <TextView
+
+        <com.zhongrui.TextViewAdapt
             android:layout_width="100px"
             android:layout_height="100dp"
             android:background="@color/colorAccent"
-            android:gravity="center"
             android:text="TextView"
+            app:adapt_paddingLeft="200px"
             app:layout_adapt_width="500px" />
 
         <TextView
             android:id="@+id/tv2"
             android:layout_width="500px"
-            android:paddingTop="1px"
             android:layout_height="100dp"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:background="@color/colorAccent"
             android:gravity="center"
+            android:paddingTop="1px"
             android:text="TextView2"
             app:layout_adapt_width="500px" />
     </com.zhongrui.RelativeLayoutAdapt>

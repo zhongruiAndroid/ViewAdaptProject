@@ -146,4 +146,16 @@
         <attr name="layout_adapt_marginStart" />
         <attr name="layout_adapt_marginEnd" />
     </declare-styleable>
+
+    <declare-styleable name="TextViewAdapt">
+        <attr name="adapt_padding"></attr>
+        <attr name="adapt_paddingHorizontal"></attr>
+        <attr name="adapt_paddingVertical"></attr>
+        <attr name="adapt_paddingLeft"></attr>
+        <attr name="adapt_paddingTop"></attr>
+        <attr name="adapt_paddingRight"></attr>
+        <attr name="adapt_paddingBottom"></attr>
+        <attr name="adapt_paddingStart"></attr>
+        <attr name="adapt_paddingEnd"></attr>
+    </declare-styleable>
 </resources>

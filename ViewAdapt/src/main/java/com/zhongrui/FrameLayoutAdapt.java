@@ -11,39 +11,34 @@ import android.widget.FrameLayout;
 
 import static android.os.Build.VERSION_CODES.JELLY_BEAN_MR1;
 
-public class FrameLayoutAdapt extends FrameLayout implements LayoutAdaptHelper.AdaptView {
-    private LayoutAdaptHelper mHelper = new LayoutAdaptHelper(this);
+public class FrameLayoutAdapt extends FrameLayout implements LayoutAdaptHelper.AdaptLayout {
+    private LayoutAdaptHelper mHelper = new LayoutAdaptHelper();
 
     /*需要判断状态栏是否隐藏*/
     public FrameLayoutAdapt(@NonNull Context context) {
         super(context);
-        init(null, R.attr.LayoutAdaptAttr, R.style.LayoutAdaptStyle);
+        mHelper.init(this,null, R.attr.LayoutAdaptAttr, R.style.LayoutAdaptStyle);
     }
 
     public FrameLayoutAdapt(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        init(attrs, R.attr.LayoutAdaptAttr, R.style.LayoutAdaptStyle);
+        mHelper.init(this,attrs, R.attr.LayoutAdaptAttr, R.style.LayoutAdaptStyle);
     }
 
     public FrameLayoutAdapt(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(attrs, defStyleAttr, R.style.LayoutAdaptStyle);
+        mHelper.init(this,attrs, defStyleAttr, R.style.LayoutAdaptStyle);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public FrameLayoutAdapt(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init(attrs, defStyleAttr, defStyleRes);
+        mHelper.init(this,attrs, defStyleAttr, defStyleRes);
     }
-
-    private void init(AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        mHelper.obtainStyledAttributes(this,getContext(), attrs, defStyleAttr, defStyleRes);
-    }
-
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         if (mHelper.canUseAdapt()) {
-            mHelper.adjustChildren();
+            mHelper.adjustChildren(this);
         }
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         if (mHelper.canUseAdapt()) {
@@ -56,7 +51,7 @@ public class FrameLayoutAdapt extends FrameLayout implements LayoutAdaptHelper.A
             return;
         }
         /*如果XXXLayoutAdapt的父view是系统ViewGroup,并且自身有设置layout_adapt_width或者layout_adapt_height，则自己适配自己的宽高*/
-        if (!(getParent() instanceof LayoutAdaptHelper.AdaptView)) {
+        if (!(getParent() instanceof LayoutAdaptHelper.AdaptLayout)) {
             int selfWidth = mHelper.selfWidth;
             int selfHeight = mHelper.selfHeight;
             if (selfWidth > 0 && selfHeight > 0) {
@@ -70,12 +65,16 @@ public class FrameLayoutAdapt extends FrameLayout implements LayoutAdaptHelper.A
     }
 
     public void setPaddingAdapt(int left, int top, int right, int bottom) {
-        super.setPadding(mHelper.getRealSizeInt(this, left), mHelper.getRealSizeInt(this, top), mHelper.getRealSizeInt(this, right), mHelper.getRealSizeInt(this, bottom));
+        if (mHelper.canUseAdapt()) {
+            super.setPadding(mHelper.getRealSizeInt(this, left), mHelper.getRealSizeInt(this, top), mHelper.getRealSizeInt(this, right), mHelper.getRealSizeInt(this, bottom));
+        }
     }
 
     @RequiresApi(api = JELLY_BEAN_MR1)
     public void setPaddingRelativeAdapt(int start, int top, int end, int bottom) {
-        super.setPaddingRelative(mHelper.getRealSizeInt(this, start), mHelper.getRealSizeInt(this, top), mHelper.getRealSizeInt(this, end), mHelper.getRealSizeInt(this, bottom));
+        if (mHelper.canUseAdapt()) {
+            super.setPaddingRelative(mHelper.getRealSizeInt(this, start), mHelper.getRealSizeInt(this, top), mHelper.getRealSizeInt(this, end), mHelper.getRealSizeInt(this, bottom));
+        }
     }
 
     @Override
