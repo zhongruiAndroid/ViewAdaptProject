@@ -8,7 +8,7 @@ import android.view.View;
 
 import static android.os.Build.VERSION_CODES.JELLY_BEAN_MR1;
 
-public class EditTextAdapt extends AppCompatEditText implements LayoutAdaptHelper.AdaptView {
+public class EditTextAdapt extends AppCompatEditText implements LayoutAdaptHelper.AdaptView , LayoutAdaptHelper.AdaptSize {
     private LayoutAdaptHelper mHelper = new LayoutAdaptHelper();
 
     public EditTextAdapt(Context context) {

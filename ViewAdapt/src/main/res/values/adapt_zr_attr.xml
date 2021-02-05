@@ -17,6 +17,13 @@
     <attr name="adapt_paddingStart" format="dimension"></attr>
     <attr name="adapt_paddingEnd" format="dimension"></attr>
 
+
+    <attr name="adapt_textSize" format="dimension"></attr>
+    <attr name="adapt_autoSizeStepGranularity" format="dimension"></attr>
+    <attr name="adapt_autoSizeMaxTextSize" format="dimension"></attr>
+    <attr name="adapt_autoSizeMinTextSize" format="dimension"></attr>
+
+
     <declare-styleable name="zhongruiAdapt">
         <attr name="layout_adapt_width"></attr>
         <attr name="layout_adapt_height"></attr>
@@ -35,6 +42,12 @@
         <attr name="adapt_paddingBottom"></attr>
         <attr name="adapt_paddingStart"></attr>
         <attr name="adapt_paddingEnd"></attr>
+
+
+        <attr name="adapt_textSize"></attr>
+        <attr name="adapt_autoSizeStepGranularity"></attr>
+        <attr name="adapt_autoSizeMaxTextSize"></attr>
+        <attr name="adapt_autoSizeMinTextSize"></attr>
     </declare-styleable>
     <declare-styleable name="FrameLayoutAdapt">
         <attr name="layout_adapt_width"></attr>
@@ -157,5 +170,97 @@
         <attr name="adapt_paddingBottom"></attr>
         <attr name="adapt_paddingStart"></attr>
         <attr name="adapt_paddingEnd"></attr>
+
+
+        <attr name="adapt_textSize"></attr>
+        <attr name="adapt_autoSizeStepGranularity"></attr>
+        <attr name="adapt_autoSizeMaxTextSize"></attr>
+        <attr name="adapt_autoSizeMinTextSize"></attr>
+    </declare-styleable>
+    <declare-styleable name="RadioGroupAdapt">
+        <attr name="adapt_padding"></attr>
+        <attr name="adapt_paddingHorizontal"></attr>
+        <attr name="adapt_paddingVertical"></attr>
+        <attr name="adapt_paddingLeft"></attr>
+        <attr name="adapt_paddingTop"></attr>
+        <attr name="adapt_paddingRight"></attr>
+        <attr name="adapt_paddingBottom"></attr>
+        <attr name="adapt_paddingStart"></attr>
+        <attr name="adapt_paddingEnd"></attr>
+
+
+    </declare-styleable>
+    <declare-styleable name="RadioButtonAdapt">
+        <attr name="adapt_padding"></attr>
+        <attr name="adapt_paddingHorizontal"></attr>
+        <attr name="adapt_paddingVertical"></attr>
+        <attr name="adapt_paddingLeft"></attr>
+        <attr name="adapt_paddingTop"></attr>
+        <attr name="adapt_paddingRight"></attr>
+        <attr name="adapt_paddingBottom"></attr>
+        <attr name="adapt_paddingStart"></attr>
+        <attr name="adapt_paddingEnd"></attr>
+
+
+    </declare-styleable>
+    <declare-styleable name="ImageViewAdapt">
+        <attr name="adapt_padding"></attr>
+        <attr name="adapt_paddingHorizontal"></attr>
+        <attr name="adapt_paddingVertical"></attr>
+        <attr name="adapt_paddingLeft"></attr>
+        <attr name="adapt_paddingTop"></attr>
+        <attr name="adapt_paddingRight"></attr>
+        <attr name="adapt_paddingBottom"></attr>
+        <attr name="adapt_paddingStart"></attr>
+        <attr name="adapt_paddingEnd"></attr>
+
+
+    </declare-styleable>
+    <declare-styleable name="ImageButtonAdapt">
+        <attr name="adapt_padding"></attr>
+        <attr name="adapt_paddingHorizontal"></attr>
+        <attr name="adapt_paddingVertical"></attr>
+        <attr name="adapt_paddingLeft"></attr>
+        <attr name="adapt_paddingTop"></attr>
+        <attr name="adapt_paddingRight"></attr>
+        <attr name="adapt_paddingBottom"></attr>
+        <attr name="adapt_paddingStart"></attr>
+        <attr name="adapt_paddingEnd"></attr>
+
+
+    </declare-styleable>
+    <declare-styleable name="EditTextAdapt">
+        <attr name="adapt_padding"></attr>
+        <attr name="adapt_paddingHorizontal"></attr>
+        <attr name="adapt_paddingVertical"></attr>
+        <attr name="adapt_paddingLeft"></attr>
+        <attr name="adapt_paddingTop"></attr>
+        <attr name="adapt_paddingRight"></attr>
+        <attr name="adapt_paddingBottom"></attr>
+        <attr name="adapt_paddingStart"></attr>
+        <attr name="adapt_paddingEnd"></attr>
+
+
+        <attr name="adapt_textSize"></attr>
+        <attr name="adapt_autoSizeStepGranularity"></attr>
+        <attr name="adapt_autoSizeMaxTextSize"></attr>
+        <attr name="adapt_autoSizeMinTextSize"></attr>
+    </declare-styleable>
+    <declare-styleable name="CheckBoxAdapt">
+        <attr name="adapt_padding"></attr>
+        <attr name="adapt_paddingHorizontal"></attr>
+        <attr name="adapt_paddingVertical"></attr>
+        <attr name="adapt_paddingLeft"></attr>
+        <attr name="adapt_paddingTop"></attr>
+        <attr name="adapt_paddingRight"></attr>
+        <attr name="adapt_paddingBottom"></attr>
+        <attr name="adapt_paddingStart"></attr>
+        <attr name="adapt_paddingEnd"></attr>
+
+
+        <attr name="adapt_textSize"></attr>
+        <attr name="adapt_autoSizeStepGranularity"></attr>
+        <attr name="adapt_autoSizeMaxTextSize"></attr>
+        <attr name="adapt_autoSizeMinTextSize"></attr>
     </declare-styleable>
 </resources>

@@ -1,12 +1,15 @@
 package com.zhongrui;
 
+import android.annotation.SuppressLint;
 import android.content.res.TypedArray;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v4.view.MarginLayoutParamsCompat;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import static android.os.Build.VERSION_CODES.JELLY_BEAN_MR1;
 
@@ -20,6 +23,12 @@ public class LayoutAdaptHelper {
 
     public interface AdaptView extends AdaptLayout {
         void setUiDesign(View view, int uiWidth, int uiHeight, boolean useAdaptWidth, boolean adaptEnable);
+    }
+
+    public interface AdaptSize {
+        void setTextSize(int unit, float size);
+
+        void setAutoSizeTextTypeUniformWithConfiguration(int autoSizeMinTextSize, int autoSizeMaxTextSize, int autoSizeStepGranularity, int unit);
     }
 
     public interface LayoutAdaptParams {
@@ -43,6 +52,12 @@ public class LayoutAdaptHelper {
     public int adapt_paddingBottom;
     public int adapt_paddingStart;
     public int adapt_paddingEnd;
+
+
+    public int adapt_textSize;
+    public int adapt_autoSizeStepGranularity;
+    public int adapt_autoSizeMaxTextSize;
+    public int adapt_autoSizeMinTextSize;
 
 
     public void init(View view, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
@@ -92,6 +107,23 @@ public class LayoutAdaptHelper {
         uiAdaptEnable = adaptEnable;
         if (canUseAdapt()) {
             setPaddingAdapt(view);
+            setSizeAdapt(view);
+        }
+    }
+
+    private void setSizeAdapt(View view) {
+        if (canUseAdapt()) {
+            /*有可能父view还没有传给子viwui尺寸*/
+            return;
+        }
+        if (adapt_textSize >= 0) {
+            ((AdaptSize) view).setTextSize(TypedValue.COMPLEX_UNIT_PX, adapt_textSize == 0 ? 0 : getRealSize(view, adapt_textSize));
+        }
+        if (adapt_autoSizeMaxTextSize > 0 && adapt_autoSizeMinTextSize > 0 && adapt_autoSizeStepGranularity > 0) {
+            int min = getRealSizeInt(view, adapt_autoSizeMinTextSize);
+            int max = getRealSizeInt(view, adapt_autoSizeMaxTextSize);
+            int step = getRealSizeInt(view, adapt_autoSizeStepGranularity);
+            ((AdaptSize) view).setAutoSizeTextTypeUniformWithConfiguration(min, max, step, TypedValue.COMPLEX_UNIT_PX);
         }
     }
 
@@ -124,14 +156,22 @@ public class LayoutAdaptHelper {
                 adapt_paddingStart = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingStart, -1);
                 adapt_paddingEnd = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingEnd, -1);
 
-                if (adapt_paddingStart>=0) {
+                if (adapt_paddingStart >= 0) {
                     adapt_paddingLeft = adapt_paddingStart;
                 }
-                if (adapt_paddingEnd>=0) {
+                if (adapt_paddingEnd >= 0) {
                     adapt_paddingRight = adapt_paddingEnd;
                 }
             }
+            setPaddingAdapt(view);
 
+        }
+        if (view instanceof AdaptSize) {
+            adapt_textSize = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_textSize, -1);
+            adapt_autoSizeMaxTextSize = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_autoSizeMaxTextSize, -1);
+            adapt_autoSizeMinTextSize = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_autoSizeMinTextSize, -1);
+            adapt_autoSizeStepGranularity = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_autoSizeStepGranularity, -1);
+            setSizeAdapt(view);
         }
     }
 
@@ -248,8 +288,12 @@ public class LayoutAdaptHelper {
 
     /*根据设计稿上面view宽高的标注换算成实际屏幕绘制的宽高*/
     public float getRealSize(View view, int uiSize) {
+        float referenceUISize = getReferenceUISize();
+        if (referenceUISize == 0) {
+            return uiSize;
+        }
         float screenSize = uiAdaptWidth ? LayoutAdaptHelper.getScreenWidth(view) : LayoutAdaptHelper.getScreenHeight(view);
-        float resultSize = screenSize * uiSize / getReferenceUISize();
+        float resultSize = screenSize * uiSize / referenceUISize;
         return resultSize;
     }
 

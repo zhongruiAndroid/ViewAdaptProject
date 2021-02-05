@@ -8,7 +8,7 @@ import android.view.View;
 
 import static android.os.Build.VERSION_CODES.JELLY_BEAN_MR1;
 
-public class TextViewAdapt extends AppCompatTextView implements LayoutAdaptHelper.AdaptView {
+public class TextViewAdapt extends AppCompatTextView implements LayoutAdaptHelper.AdaptView, LayoutAdaptHelper.AdaptSize {
     private LayoutAdaptHelper mHelper = new LayoutAdaptHelper();
 
     public TextViewAdapt(Context context) {
@@ -45,4 +45,6 @@ public class TextViewAdapt extends AppCompatTextView implements LayoutAdaptHelpe
         /*得到父view传的ui设计尺寸，适配padding*/
         mHelper.setUiDesign(view, uiWidth, uiHeight, useAdaptWidth, adaptEnable);
     }
+
+
 }
