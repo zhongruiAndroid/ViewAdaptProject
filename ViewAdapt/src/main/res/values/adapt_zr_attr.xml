@@ -24,6 +24,20 @@
     <attr name="adapt_autoSizeMinTextSize" format="dimension"></attr>
 
 
+    <!--layout-attr-->
+    <attr name="layout_adapt_width" format="dimension"></attr>
+    <attr name="layout_adapt_height" format="dimension"></attr>
+    <attr name="layout_adapt_margin" format="dimension" />
+    <attr name="layout_adapt_marginLeft" format="dimension" />
+    <attr name="layout_adapt_marginTop" format="dimension" />
+    <attr name="layout_adapt_marginRight" format="dimension" />
+    <attr name="layout_adapt_marginBottom" format="dimension" />
+    <attr name="layout_adapt_marginStart" format="dimension" />
+    <attr name="layout_adapt_marginEnd" format="dimension" />
+    <attr name="adapt_include_status_bar_height" format="boolean" />
+    <attr name="ignoreAdaptHeight" format="dimension" />
+    <attr name="ignoreAdaptWidth" format="dimension" />
+
     <declare-styleable name="zhongruiAdapt">
         <attr name="layout_adapt_width"></attr>
         <attr name="layout_adapt_height"></attr>
@@ -42,6 +56,9 @@
         <attr name="adapt_paddingBottom"></attr>
         <attr name="adapt_paddingStart"></attr>
         <attr name="adapt_paddingEnd"></attr>
+        <attr name="adapt_include_status_bar_height"></attr>
+        <attr name="ignoreAdaptHeight"   />
+        <attr name="ignoreAdaptWidth"   />
 
 
         <attr name="adapt_textSize"></attr>
@@ -66,6 +83,9 @@
         <attr name="adapt_paddingBottom"></attr>
         <attr name="adapt_paddingStart"></attr>
         <attr name="adapt_paddingEnd"></attr>
+        <attr name="adapt_include_status_bar_height"></attr>
+        <attr name="ignoreAdaptHeight"   />
+        <attr name="ignoreAdaptWidth"   />
     </declare-styleable>
 
     <declare-styleable name="LinearLayoutAdapt">
@@ -84,6 +104,9 @@
         <attr name="adapt_paddingBottom"></attr>
         <attr name="adapt_paddingStart"></attr>
         <attr name="adapt_paddingEnd"></attr>
+        <attr name="adapt_include_status_bar_height"></attr>
+        <attr name="ignoreAdaptHeight"   />
+        <attr name="ignoreAdaptWidth"   />
     </declare-styleable>
 
     <declare-styleable name="RelativeLayoutAdapt">
@@ -102,18 +125,11 @@
         <attr name="adapt_paddingBottom"></attr>
         <attr name="adapt_paddingStart"></attr>
         <attr name="adapt_paddingEnd"></attr>
+        <attr name="adapt_include_status_bar_height"></attr>
+        <attr name="ignoreAdaptHeight"   />
+        <attr name="ignoreAdaptWidth"   />
     </declare-styleable>
 
-
-    <attr name="layout_adapt_width" format="dimension"></attr>
-    <attr name="layout_adapt_height" format="dimension"></attr>
-    <attr name="layout_adapt_margin" format="dimension" />
-    <attr name="layout_adapt_marginLeft" format="dimension" />
-    <attr name="layout_adapt_marginTop" format="dimension" />
-    <attr name="layout_adapt_marginRight" format="dimension" />
-    <attr name="layout_adapt_marginBottom" format="dimension" />
-    <attr name="layout_adapt_marginStart" format="dimension" />
-    <attr name="layout_adapt_marginEnd" format="dimension" />
 
     <declare-styleable name="LayoutAdapt_Layout">
         <attr name="layout_adapt_width"></attr>
@@ -187,6 +203,9 @@
         <attr name="adapt_paddingBottom"></attr>
         <attr name="adapt_paddingStart"></attr>
         <attr name="adapt_paddingEnd"></attr>
+        <attr name="adapt_include_status_bar_height"></attr>
+        <attr name="ignoreAdaptHeight"   />
+        <attr name="ignoreAdaptWidth"   />
 
 
     </declare-styleable>
