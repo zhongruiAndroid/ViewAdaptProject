@@ -1,7 +1,7 @@
-**ViewGroup提供**
+**ViewGroup提供**<br/>
 **FrameLayoutAdapt，LinearLayoutAdapt，RelativeLayoutAdapt，RadioGroupAdapt**
 
-**View提供**
+**View提供**<br/>
 **TextViewAdapt，EditTextAdapt，CheckBoxAdapt，RadioButtonAdapt，ImageViewAdapt，ImageButtonAdapt**
 
 
