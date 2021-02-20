@@ -44,4 +44,19 @@ public class EditTextAdapt extends AppCompatEditText implements LayoutAdaptHelpe
     public void setUiDesign(View view, int uiWidth, int uiHeight, boolean useAdaptWidth, boolean adaptEnable) {
         mHelper.setUiDesign(view, uiWidth, uiHeight, useAdaptWidth, adaptEnable);
     }
+
+    @Override
+    public void ignoreWidth(int ignoreWidth) {
+        mHelper.setIgnoreAdaptWidth(ignoreWidth);
+    }
+
+    @Override
+    public void ignoreHeight(int ignoreHeight) {
+        mHelper.setIgnoreAdaptHeight(ignoreHeight);
+    }
+
+    @Override
+    public void setContentViewSize(int width, int height) {
+        mHelper.setContentViewSize(width, height);
+    }
 }

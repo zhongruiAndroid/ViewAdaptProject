@@ -1,6 +1,6 @@
 package com.zhongrui;
 
-import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.view.ViewParent;
 
 import static android.os.Build.VERSION_CODES.JELLY_BEAN_MR1;
 
@@ -19,6 +19,12 @@ public class LayoutAdaptHelper {
 
         @RequiresApi(api = JELLY_BEAN_MR1)
         void setPaddingRelativeAdapt(int start, int top, int end, int bottom);
+
+        void ignoreWidth(int ignoreWidth);
+
+        void ignoreHeight(int ignoreHeight);
+
+        void setContentViewSize(int width, int height);
     }
 
     public interface AdaptView extends AdaptLayout {
@@ -35,10 +41,17 @@ public class LayoutAdaptHelper {
         LayoutParamsInfo getLayoutAdaptInfo();
     }
 
+    /*需要忽略计算的屏幕宽高*/
+    private int ignoreAdaptWidth;
+    private int ignoreAdaptHeight;
+    public int contentViewWidth;
+    public int contentViewHeight;
+
     public int uiDesignWidth;
     public int uiDesignHeight;
     public boolean uiAdaptWidth;
     public boolean uiAdaptEnable;
+    public boolean autoAdaptScreenWidthHeight;
 
     public int selfWidth;
     public int selfHeight;
@@ -52,18 +65,20 @@ public class LayoutAdaptHelper {
     public int adapt_paddingBottom;
     public int adapt_paddingStart;
     public int adapt_paddingEnd;
+    public boolean adapt_include_status_bar_height;
 
 
     public int adapt_textSize;
     public int adapt_autoSizeStepGranularity;
     public int adapt_autoSizeMaxTextSize;
     public int adapt_autoSizeMinTextSize;
-
+    private boolean isEditMode;
 
     public void init(View view, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         if (view == null) {
             return;
         }
+        isEditMode = view.isInEditMode();
         if (view instanceof ViewGroup) {
             obtainStyledAttributes(view, attrs, defStyleAttr, defStyleRes);
         } else {
@@ -76,13 +91,18 @@ public class LayoutAdaptHelper {
             return;
         }
         TypedArray typedArray = view.getContext().obtainStyledAttributes(attrs, R.styleable.zhongruiAdapt, defStyleAttr, defStyleRes);
-        uiDesignWidth = typedArray.getInt(R.styleable.zhongruiAdapt_uiDesignWidth, 0);
-        uiDesignHeight = typedArray.getInt(R.styleable.zhongruiAdapt_uiDesignHeight, 0);
+        uiDesignWidth = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_uiDesignWidth, 0);
+        uiDesignHeight = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_uiDesignHeight, 0);
         uiAdaptWidth = typedArray.getBoolean(R.styleable.zhongruiAdapt_uiAdaptWidth, true);
         uiAdaptEnable = typedArray.getBoolean(R.styleable.zhongruiAdapt_uiAdaptEnable, true);
+        autoAdaptScreenWidthHeight = typedArray.getBoolean(R.styleable.zhongruiAdapt_autoAdaptScreenWidthHeight, true);
 
         selfWidth = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_layout_adapt_width, -1);
         selfHeight = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_layout_adapt_height, -1);
+
+        adapt_include_status_bar_height = typedArray.getBoolean(R.styleable.zhongruiAdapt_adapt_include_status_bar_height, false);
+        ignoreAdaptWidth = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_ignoreAdaptWidth, 0);
+        ignoreAdaptHeight = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_ignoreAdaptHeight, 0);
 
         obtainStyledAttributesForView(view, typedArray);
 
@@ -199,6 +219,27 @@ public class LayoutAdaptHelper {
         return false;
     }
 
+    public void setContentViewMeasureSpec(View view, int widthMeasureSpec, int heightMeasureSpec) {
+        if (view == null) {
+            return;
+        }
+        ViewParent parent = view.getParent();
+        if (parent == null) {
+            return;
+        }
+        ViewGroup parentView = (ViewGroup) parent;
+        if (parentView.getId() != android.R.id.content) {
+            return;
+        }
+        contentViewWidth = View.MeasureSpec.getSize(widthMeasureSpec);
+        contentViewHeight = View.MeasureSpec.getSize(heightMeasureSpec);
+    }
+
+    public void setContentViewSize(int width, int height) {
+        contentViewWidth = width;
+        contentViewHeight = height;
+    }
+
     public void adjustChildren(ViewGroup mHost) {
         if (mHost == null) {
             throw new IllegalArgumentException("host must be non-null");
@@ -209,6 +250,10 @@ public class LayoutAdaptHelper {
                 /*将viewgroup设置的ui设计尺寸传给子view*/
                 /*view需要适配padding*/
                 ((LayoutAdaptHelper.AdaptView) view).setUiDesign(view, uiDesignWidth, uiDesignHeight, uiAdaptWidth, uiAdaptEnable);
+            }
+            if (view instanceof LayoutAdaptHelper.AdaptLayout) {
+                /*将contentviewSize传给子viewgroup*/
+                ((LayoutAdaptHelper.AdaptLayout) view).setContentViewSize(contentViewWidth,contentViewHeight);
             }
             ViewGroup.LayoutParams params = view.getLayoutParams();
             if (params instanceof LayoutAdaptHelper.LayoutAdaptParams) {
@@ -230,8 +275,10 @@ public class LayoutAdaptHelper {
         return view.getContext().getResources().getDisplayMetrics().heightPixels;
     }
 
-    public static int getStatusBarHeight() {
-        return 1;
+    public static int getStatusBarHeight(Context context) {
+        int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
+        int statusBarHeight = (resourceId > 0) ? context.getResources().getDimensionPixelSize(resourceId) : 0;
+        return statusBarHeight;
     }
 
 
@@ -292,7 +339,24 @@ public class LayoutAdaptHelper {
         if (referenceUISize == 0) {
             return uiSize;
         }
-        float screenSize = uiAdaptWidth ? LayoutAdaptHelper.getScreenWidth(view) : LayoutAdaptHelper.getScreenHeight(view);
+        float screenSize;
+        int tempWidth;
+        int tempHeight;
+        /*开启自动适配屏幕宽高*/
+        if (!isEditMode && autoAdaptScreenWidthHeight && ((uiAdaptWidth && contentViewWidth > 0) || (!uiAdaptWidth && contentViewHeight > 0))) {
+            tempWidth = contentViewWidth - ignoreAdaptWidth;
+            tempHeight = contentViewHeight - ignoreAdaptHeight;
+        } else {
+            int statusBarHeight = isEditMode ? 0 : getStatusBarHeight(view.getContext());
+            /*减去忽略的高度，比如actionbar什么的*/
+            tempWidth = LayoutAdaptHelper.getScreenWidth(view) - ignoreAdaptWidth;
+            tempHeight = LayoutAdaptHelper.getScreenHeight(view) - ignoreAdaptHeight;
+            /*如果不包含状态栏高度，则屏幕高度减去状态栏*/
+            if (!adapt_include_status_bar_height) {
+                tempHeight -= statusBarHeight;
+            }
+        }
+        screenSize = uiAdaptWidth ? tempWidth : tempHeight;
         float resultSize = screenSize * uiSize / referenceUISize;
         return resultSize;
     }
@@ -301,5 +365,11 @@ public class LayoutAdaptHelper {
         return (int) getRealSize(view, uiSize);
     }
 
+    public void setIgnoreAdaptWidth(int ignoreAdaptWidth) {
+        this.ignoreAdaptWidth = ignoreAdaptWidth;
+    }
 
+    public void setIgnoreAdaptHeight(int ignoreAdaptHeight) {
+        this.ignoreAdaptHeight = ignoreAdaptHeight;
+    }
 }

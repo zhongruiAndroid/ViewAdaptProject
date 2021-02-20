@@ -1,7 +1,7 @@
 <resources>
     <style name="LayoutAdaptStyle">
-        <item name="uiDesignWidth">0</item>
-        <item name="uiDesignHeight">0</item>
+        <item name="uiDesignWidth">0px</item>
+        <item name="uiDesignHeight">0px</item>
         <item name="uiAdaptWidth">true</item>
         <item name="uiAdaptEnable">true</item>
     </style>

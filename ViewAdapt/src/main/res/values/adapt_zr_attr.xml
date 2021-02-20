@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <attr name="LayoutAdaptAttr" format="reference" />
-    <attr name="uiDesignWidth" format="integer"></attr>
-    <attr name="uiDesignHeight" format="integer"></attr>
-    <attr name="uiAdaptWidth" format="boolean"></attr>
-    <attr name="uiAdaptEnable" format="boolean"></attr>
+    <attr name="uiDesignWidth" format="dimension" />
+    <attr name="uiDesignHeight" format="dimension" />
+    <attr name="uiAdaptWidth" format="boolean" />
+    <attr name="uiAdaptEnable" format="boolean" />
+    <attr name="autoAdaptScreenWidthHeight" format="boolean" />
 
 
-    <attr name="adapt_padding" format="dimension"></attr>
-    <attr name="adapt_paddingHorizontal" format="dimension"></attr>
-    <attr name="adapt_paddingVertical" format="dimension"></attr>
-    <attr name="adapt_paddingLeft" format="dimension"></attr>
-    <attr name="adapt_paddingTop" format="dimension"></attr>
-    <attr name="adapt_paddingRight" format="dimension"></attr>
-    <attr name="adapt_paddingBottom" format="dimension"></attr>
-    <attr name="adapt_paddingStart" format="dimension"></attr>
-    <attr name="adapt_paddingEnd" format="dimension"></attr>
+    <attr name="adapt_padding" format="dimension" />
+    <attr name="adapt_paddingHorizontal" format="dimension" />
+    <attr name="adapt_paddingVertical" format="dimension" />
+    <attr name="adapt_paddingLeft" format="dimension" />
+    <attr name="adapt_paddingTop" format="dimension" />
+    <attr name="adapt_paddingRight" format="dimension" />
+    <attr name="adapt_paddingBottom" format="dimension" />
+    <attr name="adapt_paddingStart" format="dimension" />
+    <attr name="adapt_paddingEnd" format="dimension" />
 
 
-    <attr name="adapt_textSize" format="dimension"></attr>
-    <attr name="adapt_autoSizeStepGranularity" format="dimension"></attr>
-    <attr name="adapt_autoSizeMaxTextSize" format="dimension"></attr>
-    <attr name="adapt_autoSizeMinTextSize" format="dimension"></attr>
+    <attr name="adapt_textSize" format="dimension" />
+    <attr name="adapt_autoSizeStepGranularity" format="dimension" />
+    <attr name="adapt_autoSizeMaxTextSize" format="dimension" />
+    <attr name="adapt_autoSizeMinTextSize" format="dimension" />
 
 
     <!--layout-attr-->
-    <attr name="layout_adapt_width" format="dimension"></attr>
-    <attr name="layout_adapt_height" format="dimension"></attr>
+    <attr name="layout_adapt_width" format="dimension" />
+    <attr name="layout_adapt_height" format="dimension" />
     <attr name="layout_adapt_margin" format="dimension" />
     <attr name="layout_adapt_marginLeft" format="dimension" />
     <attr name="layout_adapt_marginTop" format="dimension" />
@@ -39,101 +40,103 @@
     <attr name="ignoreAdaptWidth" format="dimension" />
 
     <declare-styleable name="zhongruiAdapt">
-        <attr name="layout_adapt_width"></attr>
-        <attr name="layout_adapt_height"></attr>
-        <attr name="uiDesignWidth"></attr>
-        <attr name="uiDesignHeight"></attr>
-        <attr name="uiAdaptWidth"></attr>
-        <attr name="uiAdaptEnable"></attr>
+        <attr name="layout_adapt_width" />
+        <attr name="layout_adapt_height" />
+        <attr name="uiDesignWidth" />
+        <attr name="uiDesignHeight" />
+        <attr name="uiAdaptWidth" />
+        <attr name="uiAdaptEnable" />
+
+        <attr name="autoAdaptScreenWidthHeight" />
 
 
-        <attr name="adapt_padding"></attr>
-        <attr name="adapt_paddingHorizontal"></attr>
-        <attr name="adapt_paddingVertical"></attr>
-        <attr name="adapt_paddingLeft"></attr>
-        <attr name="adapt_paddingTop"></attr>
-        <attr name="adapt_paddingRight"></attr>
-        <attr name="adapt_paddingBottom"></attr>
-        <attr name="adapt_paddingStart"></attr>
-        <attr name="adapt_paddingEnd"></attr>
-        <attr name="adapt_include_status_bar_height"></attr>
-        <attr name="ignoreAdaptHeight"   />
-        <attr name="ignoreAdaptWidth"   />
+        <attr name="adapt_padding" />
+        <attr name="adapt_paddingHorizontal" />
+        <attr name="adapt_paddingVertical" />
+        <attr name="adapt_paddingLeft" />
+        <attr name="adapt_paddingTop" />
+        <attr name="adapt_paddingRight" />
+        <attr name="adapt_paddingBottom" />
+        <attr name="adapt_paddingStart" />
+        <attr name="adapt_paddingEnd" />
+        <attr name="adapt_include_status_bar_height" />
+        <attr name="ignoreAdaptHeight" />
+        <attr name="ignoreAdaptWidth" />
 
 
-        <attr name="adapt_textSize"></attr>
-        <attr name="adapt_autoSizeStepGranularity"></attr>
-        <attr name="adapt_autoSizeMaxTextSize"></attr>
-        <attr name="adapt_autoSizeMinTextSize"></attr>
+        <attr name="adapt_textSize" />
+        <attr name="adapt_autoSizeStepGranularity" />
+        <attr name="adapt_autoSizeMaxTextSize" />
+        <attr name="adapt_autoSizeMinTextSize" />
     </declare-styleable>
     <declare-styleable name="FrameLayoutAdapt">
-        <attr name="layout_adapt_width"></attr>
-        <attr name="layout_adapt_height"></attr>
-        <attr name="uiDesignWidth"></attr>
-        <attr name="uiDesignHeight"></attr>
-        <attr name="uiAdaptWidth"></attr>
-        <attr name="uiAdaptEnable"></attr>
+        <attr name="layout_adapt_width" />
+        <attr name="layout_adapt_height" />
+        <attr name="uiDesignWidth" />
+        <attr name="uiDesignHeight" />
+        <attr name="uiAdaptWidth" />
+        <attr name="uiAdaptEnable" />
 
-        <attr name="adapt_padding"></attr>
-        <attr name="adapt_paddingHorizontal"></attr>
-        <attr name="adapt_paddingVertical"></attr>
-        <attr name="adapt_paddingLeft"></attr>
-        <attr name="adapt_paddingTop"></attr>
-        <attr name="adapt_paddingRight"></attr>
-        <attr name="adapt_paddingBottom"></attr>
-        <attr name="adapt_paddingStart"></attr>
-        <attr name="adapt_paddingEnd"></attr>
-        <attr name="adapt_include_status_bar_height"></attr>
-        <attr name="ignoreAdaptHeight"   />
-        <attr name="ignoreAdaptWidth"   />
+        <attr name="adapt_padding" />
+        <attr name="adapt_paddingHorizontal" />
+        <attr name="adapt_paddingVertical" />
+        <attr name="adapt_paddingLeft" />
+        <attr name="adapt_paddingTop" />
+        <attr name="adapt_paddingRight" />
+        <attr name="adapt_paddingBottom" />
+        <attr name="adapt_paddingStart" />
+        <attr name="adapt_paddingEnd" />
+        <attr name="adapt_include_status_bar_height" />
+        <attr name="ignoreAdaptHeight" />
+        <attr name="ignoreAdaptWidth" />
     </declare-styleable>
 
     <declare-styleable name="LinearLayoutAdapt">
-        <attr name="layout_adapt_width"></attr>
-        <attr name="layout_adapt_height"></attr>
-        <attr name="uiDesignWidth"></attr>
-        <attr name="uiDesignHeight"></attr>
-        <attr name="uiAdaptWidth"></attr>
-        <attr name="uiAdaptEnable"></attr>
-        <attr name="adapt_padding"></attr>
-        <attr name="adapt_paddingHorizontal"></attr>
-        <attr name="adapt_paddingVertical"></attr>
-        <attr name="adapt_paddingLeft"></attr>
-        <attr name="adapt_paddingTop"></attr>
-        <attr name="adapt_paddingRight"></attr>
-        <attr name="adapt_paddingBottom"></attr>
-        <attr name="adapt_paddingStart"></attr>
-        <attr name="adapt_paddingEnd"></attr>
-        <attr name="adapt_include_status_bar_height"></attr>
-        <attr name="ignoreAdaptHeight"   />
-        <attr name="ignoreAdaptWidth"   />
+        <attr name="layout_adapt_width" />
+        <attr name="layout_adapt_height" />
+        <attr name="uiDesignWidth" />
+        <attr name="uiDesignHeight" />
+        <attr name="uiAdaptWidth" />
+        <attr name="uiAdaptEnable" />
+        <attr name="adapt_padding" />
+        <attr name="adapt_paddingHorizontal" />
+        <attr name="adapt_paddingVertical" />
+        <attr name="adapt_paddingLeft" />
+        <attr name="adapt_paddingTop" />
+        <attr name="adapt_paddingRight" />
+        <attr name="adapt_paddingBottom" />
+        <attr name="adapt_paddingStart" />
+        <attr name="adapt_paddingEnd" />
+        <attr name="adapt_include_status_bar_height" />
+        <attr name="ignoreAdaptHeight" />
+        <attr name="ignoreAdaptWidth" />
     </declare-styleable>
 
     <declare-styleable name="RelativeLayoutAdapt">
-        <attr name="layout_adapt_width"></attr>
-        <attr name="layout_adapt_height"></attr>
-        <attr name="uiDesignWidth"></attr>
-        <attr name="uiDesignHeight"></attr>
-        <attr name="uiAdaptWidth"></attr>
-        <attr name="uiAdaptEnable"></attr>
-        <attr name="adapt_padding"></attr>
-        <attr name="adapt_paddingHorizontal"></attr>
-        <attr name="adapt_paddingVertical"></attr>
-        <attr name="adapt_paddingLeft"></attr>
-        <attr name="adapt_paddingTop"></attr>
-        <attr name="adapt_paddingRight"></attr>
-        <attr name="adapt_paddingBottom"></attr>
-        <attr name="adapt_paddingStart"></attr>
-        <attr name="adapt_paddingEnd"></attr>
-        <attr name="adapt_include_status_bar_height"></attr>
-        <attr name="ignoreAdaptHeight"   />
-        <attr name="ignoreAdaptWidth"   />
+        <attr name="layout_adapt_width" />
+        <attr name="layout_adapt_height" />
+        <attr name="uiDesignWidth" />
+        <attr name="uiDesignHeight" />
+        <attr name="uiAdaptWidth" />
+        <attr name="uiAdaptEnable" />
+        <attr name="adapt_padding" />
+        <attr name="adapt_paddingHorizontal" />
+        <attr name="adapt_paddingVertical" />
+        <attr name="adapt_paddingLeft" />
+        <attr name="adapt_paddingTop" />
+        <attr name="adapt_paddingRight" />
+        <attr name="adapt_paddingBottom" />
+        <attr name="adapt_paddingStart" />
+        <attr name="adapt_paddingEnd" />
+        <attr name="adapt_include_status_bar_height" />
+        <attr name="ignoreAdaptHeight" />
+        <attr name="ignoreAdaptWidth" />
     </declare-styleable>
 
 
     <declare-styleable name="LayoutAdapt_Layout">
-        <attr name="layout_adapt_width"></attr>
-        <attr name="layout_adapt_height"></attr>
+        <attr name="layout_adapt_width" />
+        <attr name="layout_adapt_height" />
         <attr name="layout_adapt_margin" />
         <attr name="layout_adapt_marginLeft" />
         <attr name="layout_adapt_marginTop" />
@@ -143,8 +146,8 @@
         <attr name="layout_adapt_marginEnd" />
     </declare-styleable>
     <declare-styleable name="FrameLayoutAdapt_Layout">
-        <attr name="layout_adapt_width"></attr>
-        <attr name="layout_adapt_height"></attr>
+        <attr name="layout_adapt_width" />
+        <attr name="layout_adapt_height" />
         <attr name="layout_adapt_margin" />
         <attr name="layout_adapt_marginLeft" />
         <attr name="layout_adapt_marginTop" />
@@ -154,8 +157,8 @@
         <attr name="layout_adapt_marginEnd" />
     </declare-styleable>
     <declare-styleable name="LinearLayoutAdapt_Layout">
-        <attr name="layout_adapt_width"></attr>
-        <attr name="layout_adapt_height"></attr>
+        <attr name="layout_adapt_width" />
+        <attr name="layout_adapt_height" />
         <attr name="layout_adapt_margin" />
         <attr name="layout_adapt_marginLeft" />
         <attr name="layout_adapt_marginTop" />
@@ -165,8 +168,8 @@
         <attr name="layout_adapt_marginEnd" />
     </declare-styleable>
     <declare-styleable name="RelativeLayoutAdapt_Layout">
-        <attr name="layout_adapt_width"></attr>
-        <attr name="layout_adapt_height"></attr>
+        <attr name="layout_adapt_width" />
+        <attr name="layout_adapt_height" />
         <attr name="layout_adapt_margin" />
         <attr name="layout_adapt_marginLeft" />
         <attr name="layout_adapt_marginTop" />
@@ -177,109 +180,109 @@
     </declare-styleable>
 
     <declare-styleable name="TextViewAdapt">
-        <attr name="adapt_padding"></attr>
-        <attr name="adapt_paddingHorizontal"></attr>
-        <attr name="adapt_paddingVertical"></attr>
-        <attr name="adapt_paddingLeft"></attr>
-        <attr name="adapt_paddingTop"></attr>
-        <attr name="adapt_paddingRight"></attr>
-        <attr name="adapt_paddingBottom"></attr>
-        <attr name="adapt_paddingStart"></attr>
-        <attr name="adapt_paddingEnd"></attr>
+        <attr name="adapt_padding" />
+        <attr name="adapt_paddingHorizontal" />
+        <attr name="adapt_paddingVertical" />
+        <attr name="adapt_paddingLeft" />
+        <attr name="adapt_paddingTop" />
+        <attr name="adapt_paddingRight" />
+        <attr name="adapt_paddingBottom" />
+        <attr name="adapt_paddingStart" />
+        <attr name="adapt_paddingEnd" />
 
 
-        <attr name="adapt_textSize"></attr>
-        <attr name="adapt_autoSizeStepGranularity"></attr>
-        <attr name="adapt_autoSizeMaxTextSize"></attr>
-        <attr name="adapt_autoSizeMinTextSize"></attr>
+        <attr name="adapt_textSize" />
+        <attr name="adapt_autoSizeStepGranularity" />
+        <attr name="adapt_autoSizeMaxTextSize" />
+        <attr name="adapt_autoSizeMinTextSize" />
     </declare-styleable>
     <declare-styleable name="RadioGroupAdapt">
-        <attr name="adapt_padding"></attr>
-        <attr name="adapt_paddingHorizontal"></attr>
-        <attr name="adapt_paddingVertical"></attr>
-        <attr name="adapt_paddingLeft"></attr>
-        <attr name="adapt_paddingTop"></attr>
-        <attr name="adapt_paddingRight"></attr>
-        <attr name="adapt_paddingBottom"></attr>
-        <attr name="adapt_paddingStart"></attr>
-        <attr name="adapt_paddingEnd"></attr>
-        <attr name="adapt_include_status_bar_height"></attr>
-        <attr name="ignoreAdaptHeight"   />
-        <attr name="ignoreAdaptWidth"   />
+        <attr name="adapt_padding" />
+        <attr name="adapt_paddingHorizontal" />
+        <attr name="adapt_paddingVertical" />
+        <attr name="adapt_paddingLeft" />
+        <attr name="adapt_paddingTop" />
+        <attr name="adapt_paddingRight" />
+        <attr name="adapt_paddingBottom" />
+        <attr name="adapt_paddingStart" />
+        <attr name="adapt_paddingEnd" />
+        <attr name="adapt_include_status_bar_height" />
+        <attr name="ignoreAdaptHeight" />
+        <attr name="ignoreAdaptWidth" />
 
 
     </declare-styleable>
     <declare-styleable name="RadioButtonAdapt">
-        <attr name="adapt_padding"></attr>
-        <attr name="adapt_paddingHorizontal"></attr>
-        <attr name="adapt_paddingVertical"></attr>
-        <attr name="adapt_paddingLeft"></attr>
-        <attr name="adapt_paddingTop"></attr>
-        <attr name="adapt_paddingRight"></attr>
-        <attr name="adapt_paddingBottom"></attr>
-        <attr name="adapt_paddingStart"></attr>
-        <attr name="adapt_paddingEnd"></attr>
+        <attr name="adapt_padding" />
+        <attr name="adapt_paddingHorizontal" />
+        <attr name="adapt_paddingVertical" />
+        <attr name="adapt_paddingLeft" />
+        <attr name="adapt_paddingTop" />
+        <attr name="adapt_paddingRight" />
+        <attr name="adapt_paddingBottom" />
+        <attr name="adapt_paddingStart" />
+        <attr name="adapt_paddingEnd" />
 
 
     </declare-styleable>
     <declare-styleable name="ImageViewAdapt">
-        <attr name="adapt_padding"></attr>
-        <attr name="adapt_paddingHorizontal"></attr>
-        <attr name="adapt_paddingVertical"></attr>
-        <attr name="adapt_paddingLeft"></attr>
-        <attr name="adapt_paddingTop"></attr>
-        <attr name="adapt_paddingRight"></attr>
-        <attr name="adapt_paddingBottom"></attr>
-        <attr name="adapt_paddingStart"></attr>
-        <attr name="adapt_paddingEnd"></attr>
+        <attr name="adapt_padding" />
+        <attr name="adapt_paddingHorizontal" />
+        <attr name="adapt_paddingVertical" />
+        <attr name="adapt_paddingLeft" />
+        <attr name="adapt_paddingTop" />
+        <attr name="adapt_paddingRight" />
+        <attr name="adapt_paddingBottom" />
+        <attr name="adapt_paddingStart" />
+        <attr name="adapt_paddingEnd" />
 
 
     </declare-styleable>
     <declare-styleable name="ImageButtonAdapt">
-        <attr name="adapt_padding"></attr>
-        <attr name="adapt_paddingHorizontal"></attr>
-        <attr name="adapt_paddingVertical"></attr>
-        <attr name="adapt_paddingLeft"></attr>
-        <attr name="adapt_paddingTop"></attr>
-        <attr name="adapt_paddingRight"></attr>
-        <attr name="adapt_paddingBottom"></attr>
-        <attr name="adapt_paddingStart"></attr>
-        <attr name="adapt_paddingEnd"></attr>
+        <attr name="adapt_padding" />
+        <attr name="adapt_paddingHorizontal" />
+        <attr name="adapt_paddingVertical" />
+        <attr name="adapt_paddingLeft" />
+        <attr name="adapt_paddingTop" />
+        <attr name="adapt_paddingRight" />
+        <attr name="adapt_paddingBottom" />
+        <attr name="adapt_paddingStart" />
+        <attr name="adapt_paddingEnd" />
 
 
     </declare-styleable>
     <declare-styleable name="EditTextAdapt">
-        <attr name="adapt_padding"></attr>
-        <attr name="adapt_paddingHorizontal"></attr>
-        <attr name="adapt_paddingVertical"></attr>
-        <attr name="adapt_paddingLeft"></attr>
-        <attr name="adapt_paddingTop"></attr>
-        <attr name="adapt_paddingRight"></attr>
-        <attr name="adapt_paddingBottom"></attr>
-        <attr name="adapt_paddingStart"></attr>
-        <attr name="adapt_paddingEnd"></attr>
+        <attr name="adapt_padding" />
+        <attr name="adapt_paddingHorizontal" />
+        <attr name="adapt_paddingVertical" />
+        <attr name="adapt_paddingLeft" />
+        <attr name="adapt_paddingTop" />
+        <attr name="adapt_paddingRight" />
+        <attr name="adapt_paddingBottom" />
+        <attr name="adapt_paddingStart" />
+        <attr name="adapt_paddingEnd" />
 
 
-        <attr name="adapt_textSize"></attr>
-        <attr name="adapt_autoSizeStepGranularity"></attr>
-        <attr name="adapt_autoSizeMaxTextSize"></attr>
-        <attr name="adapt_autoSizeMinTextSize"></attr>
+        <attr name="adapt_textSize" />
+        <attr name="adapt_autoSizeStepGranularity" />
+        <attr name="adapt_autoSizeMaxTextSize" />
+        <attr name="adapt_autoSizeMinTextSize" />
     </declare-styleable>
     <declare-styleable name="CheckBoxAdapt">
-        <attr name="adapt_padding"></attr>
-        <attr name="adapt_paddingHorizontal"></attr>
-        <attr name="adapt_paddingVertical"></attr>
-        <attr name="adapt_paddingLeft"></attr>
-        <attr name="adapt_paddingTop"></attr>
-        <attr name="adapt_paddingRight"></attr>
-        <attr name="adapt_paddingBottom"></attr>
-        <attr name="adapt_paddingStart"></attr>
-        <attr name="adapt_paddingEnd"></attr>
+        <attr name="adapt_padding" />
+        <attr name="adapt_paddingHorizontal" />
+        <attr name="adapt_paddingVertical" />
+        <attr name="adapt_paddingLeft" />
+        <attr name="adapt_paddingTop" />
+        <attr name="adapt_paddingRight" />
+        <attr name="adapt_paddingBottom" />
+        <attr name="adapt_paddingStart" />
+        <attr name="adapt_paddingEnd" />
 
 
-        <attr name="adapt_textSize"></attr>
-        <attr name="adapt_autoSizeStepGranularity"></attr>
-        <attr name="adapt_autoSizeMaxTextSize"></attr>
-        <attr name="adapt_autoSizeMinTextSize"></attr>
+        <attr name="adapt_textSize" />
+        <attr name="adapt_autoSizeStepGranularity" />
+        <attr name="adapt_autoSizeMaxTextSize" />
+        <attr name="adapt_autoSizeMinTextSize" />
     </declare-styleable>
 </resources>

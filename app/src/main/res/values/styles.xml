@@ -16,14 +16,15 @@
     </style>
     <style name="test1" parent="LayoutAdaptStyle">
         <item name="uiAdaptEnable">true</item>
-        <item name="uiDesignWidth">4000</item>
+        <item name="uiDesignWidth">4000px</item>
+        <item name="uiDesignHeight">4000px</item>
     </style>
     <style name="test2">
         <item name="uiAdaptEnable">true</item>
-        <item name="uiDesignWidth">3000</item>
+        <item name="uiDesignWidth">3000px</item>
     </style>
     <style name="test3">
         <item name="uiAdaptEnable">true</item>
-        <item name="uiDesignWidth">2000</item>
+        <item name="uiDesignWidth">2000px</item>
     </style>
 </resources>

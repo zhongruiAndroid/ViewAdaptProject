@@ -1,24 +1,18 @@
 package com.test.viewadapt;
 
-import android.graphics.Point;
-import android.graphics.Rect;
-import android.os.Build;
-import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.util.Log;
-import android.view.Display;
 import android.view.View;
+import android.view.Window;
 import android.widget.CheckBox;
 
-
-public class TestActivity extends AppCompatActivity {
+public class Test2Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test);
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.activity_test2);
         final CheckBox cbAdaptCutout = findViewById(R.id.cbAdaptCutout);
         final CheckBox cbFullScreen = findViewById(R.id.cbFullScreen);
         cbFullScreen.setOnClickListener(new View.OnClickListener() {
@@ -40,5 +34,4 @@ public class TestActivity extends AppCompatActivity {
             }
         });
     }
-
 }

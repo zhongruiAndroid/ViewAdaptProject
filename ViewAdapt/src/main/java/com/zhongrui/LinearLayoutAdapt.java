@@ -37,8 +37,24 @@ public class LinearLayoutAdapt extends LinearLayout implements LayoutAdaptHelper
     }
 
     @Override
+    public void ignoreWidth(int ignoreWidth) {
+        mHelper.setIgnoreAdaptWidth(ignoreWidth);
+    }
+
+    @Override
+    public void ignoreHeight(int ignoreHeight) {
+        mHelper.setIgnoreAdaptHeight(ignoreHeight);
+    }
+
+    @Override
+    public void setContentViewSize(int width, int height) {
+        mHelper.setContentViewSize(width, height);
+    }
+
+    @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         if (mHelper.canUseAdapt()) {
+            mHelper.setContentViewMeasureSpec(this,widthMeasureSpec,heightMeasureSpec);
             mHelper.adjustChildren(this);
         }
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);

@@ -17,27 +17,44 @@ public class FrameLayoutAdapt extends FrameLayout implements LayoutAdaptHelper.A
     /*需要判断状态栏是否隐藏*/
     public FrameLayoutAdapt(@NonNull Context context) {
         super(context);
-        mHelper.init(this,null, R.attr.LayoutAdaptAttr, R.style.LayoutAdaptStyle);
+        mHelper.init(this, null, R.attr.LayoutAdaptAttr, R.style.LayoutAdaptStyle);
     }
 
     public FrameLayoutAdapt(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        mHelper.init(this,attrs, R.attr.LayoutAdaptAttr, R.style.LayoutAdaptStyle);
+        mHelper.init(this, attrs, R.attr.LayoutAdaptAttr, R.style.LayoutAdaptStyle);
     }
 
     public FrameLayoutAdapt(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        mHelper.init(this,attrs, defStyleAttr, R.style.LayoutAdaptStyle);
+        mHelper.init(this, attrs, defStyleAttr, R.style.LayoutAdaptStyle);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public FrameLayoutAdapt(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        mHelper.init(this,attrs, defStyleAttr, defStyleRes);
+        mHelper.init(this, attrs, defStyleAttr, defStyleRes);
     }
+
+    @Override
+    public void ignoreWidth(int ignoreWidth) {
+        mHelper.setIgnoreAdaptWidth(ignoreWidth);
+    }
+
+    @Override
+    public void ignoreHeight(int ignoreHeight) {
+        mHelper.setIgnoreAdaptHeight(ignoreHeight);
+    }
+
+    @Override
+    public void setContentViewSize(int width, int height) {
+        mHelper.setContentViewSize(width, height);
+    }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         if (mHelper.canUseAdapt()) {
+            mHelper.setContentViewMeasureSpec(this,widthMeasureSpec,heightMeasureSpec);
             mHelper.adjustChildren(this);
         }
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);

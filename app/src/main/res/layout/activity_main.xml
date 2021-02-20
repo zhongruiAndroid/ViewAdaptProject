@@ -4,14 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#7283B2EC"
     tools:context=".MainActivity">
 
    <Button
        android:id="@+id/btTest"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:textAllCaps="false"
-       android:text="test"
-       />
+       android:text="参照宽度适配"
+       android:textAllCaps="false" />
+
+   <Button
+       android:id="@+id/btTest2"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="参照高度适配"
+       android:textAllCaps="false" />
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       android:gravity="center_vertical"
+       >
+      <CheckBox
+          android:id="@+id/cbFullScreen"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textAllCaps="false"
+          android:text="全屏"
+          />
+      <CheckBox
+          android:id="@+id/cbAdaptCutout"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textAllCaps="false"
+          android:text="全屏适配刘海屏幕"
+          />
+      <CheckBox
+          android:id="@+id/cbHiddenNavigation"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textAllCaps="false"
+          android:text="隐藏虚拟按键"
+          />
+   </LinearLayout>
 
 </LinearLayout>

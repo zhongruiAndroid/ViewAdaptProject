@@ -2,61 +2,60 @@
 <com.zhongrui.LinearLayoutAdapt xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/testView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".Test2Activity">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@color/colorAccent"
             android:text="LinearLayout\n子view参考" />
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@color/colorPrimary"
             android:text="LinearLayout\n子view参考"
-            android:textColor="#FEFDFF" />
+            android:textColor="#ffffff" />
     </LinearLayout>
 
     <com.zhongrui.FrameLayoutAdapt
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        app:uiAdaptWidth="true"
-        app:uiDesignHeight="1000px"
-        app:uiDesignWidth="1000px">
+        app:uiAdaptWidth="false"
+        app:uiDesignHeight="1000px">
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="#516200EE"
             android:text="FrameLayoutAdapt\n子view适配"
-            app:layout_adapt_width="500px" />
+            app:layout_adapt_height="500px" />
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="right"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
             android:background="#4A03DAC5"
             android:text="FrameLayoutAdapt\n子view适配"
-            app:layout_adapt_width="500px" />
+            app:layout_adapt_height="500px" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+            android:layout_marginTop="150dp"
             android:gravity="center_vertical"
             android:orientation="vertical">
 
