@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhongrui.LinearLayoutAdapt xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Test3Activity">
+
+    <Button
+        android:id="@+id/btAddView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="添加view宽500高500"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btSetView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="设置view宽300高300"
+        android:textAllCaps="false" />
+
+    <com.zhongrui.FrameLayoutAdapt
+        android:id="@+id/fl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:uiDesignWidth="1000px">
+
+    </com.zhongrui.FrameLayoutAdapt>
+
+</com.zhongrui.LinearLayoutAdapt>

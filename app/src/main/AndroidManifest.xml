@@ -9,12 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Test2Activity"></activity>
+        <activity android:name=".Test3Activity"></activity>
+        <activity android:name=".Test2Activity" />
         <activity
             android:name=".TestActivity"
-            android:theme="@style/AppTheme2"
             android:configChanges="orientation|screenLayout|keyboardHidden"
-            />
+            android:theme="@style/AppTheme2" />
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation">

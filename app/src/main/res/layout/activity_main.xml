@@ -21,6 +21,12 @@
        android:layout_height="wrap_content"
        android:text="参照高度适配"
        android:textAllCaps="false" />
+   <Button
+       android:id="@+id/btTest3"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="动态添加设置view宽高"
+       android:textAllCaps="false" />
    <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="wrap_content"

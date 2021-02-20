@@ -30,6 +30,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(Test2Activity.class);
             }
         });
+        View btTest3 = findViewById(R.id.btTest3);
+        btTest3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(Test3Activity.class);
+            }
+        });
 
         final CheckBox cbAdaptCutout = findViewById(R.id.cbAdaptCutout);
         final CheckBox cbFullScreen = findViewById(R.id.cbFullScreen);

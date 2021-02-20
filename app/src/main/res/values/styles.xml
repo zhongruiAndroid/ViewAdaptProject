@@ -14,7 +14,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="LayoutAdaptAttr">@style/test2</item>
     </style>
-    <style name="test1" parent="LayoutAdaptStyle">
+    <style name="test1" >
         <item name="uiAdaptEnable">true</item>
         <item name="uiDesignWidth">4000px</item>
         <item name="uiDesignHeight">4000px</item>
