@@ -1,3 +1,10 @@
+**ViewGroup提供**
+**FrameLayoutAdapt，LinearLayoutAdapt，RelativeLayoutAdapt，RadioGroupAdapt**
+
+**View提供**
+**TextViewAdapt，EditTextAdapt，CheckBoxAdapt，RadioButtonAdapt，ImageViewAdapt，ImageButtonAdapt**
+
+
 | 属性                          | 类型    | 说明                                                                                                                            |
 | ------------------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | uiDesignWidth                   | dimension | ui设计稿的宽度                                                                                                              |
