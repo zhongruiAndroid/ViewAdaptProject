@@ -37,6 +37,8 @@
 | adapt_include_status_bar_height | boolean   | autoAdaptScreenWidthHeight为true的情况下，该属性无效<br/>适配时是否包含状态栏高度,true:包含(全屏显示情况下需要设置为true)，默认:false |
 | ignoreAdaptHeight               | dimension | 适配高度时，需要忽略的尺寸                                                                                           |
 | ignoreAdaptWidth                | dimension | 适配宽度时，需要忽略的尺寸                                                                                           |
+
+## 注意!Xml根布局一定要用FrameLayoutAdapt或LinearLayoutAdapt或RelativeLayoutAdapt或RadioGroupAdapt
 #### 1.全局设置设计稿宽高
 ##### application 或者 当前activity设置theme
 ```xml
