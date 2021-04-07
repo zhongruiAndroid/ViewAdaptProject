@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--白色矩形 作为背景色-->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#0acddb" />
+            <stroke
+                android:width="5dp"
+                android:color="@color/design_default_color_primary"></stroke>
+        </shape>
+    </item>
+    <item android:left="500px"  >
+        <shape android:shape="rectangle">
+            <solid android:color="#DA925B" />
+            <stroke
+                android:width="5dp"
+                android:color="#D82487"></stroke>
+        </shape>
+    </item>
+</layer-list>

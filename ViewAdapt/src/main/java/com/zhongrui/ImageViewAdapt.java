@@ -1,10 +1,14 @@
 package com.zhongrui;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.zhongrui.helper.BGHelper;
 
 import static android.os.Build.VERSION_CODES.JELLY_BEAN_MR1;
 
@@ -55,5 +59,34 @@ public class ImageViewAdapt extends AppCompatImageView implements  LayoutAdaptHe
     @Override
     public void setContentViewSize(int width, int height) {
         mHelper.setContentViewSize(width, height);
+        BGHelper.resetDrawable(this,preDrawable);
+        BGHelper.resetImageDrawable(this,preImageDrawable);
+    }
+
+    private Drawable preDrawable;
+    /*因为setBackground在构造函数的super方法中先于LayoutAdaptHelper构造之前执行，所以先保存Drawable*/
+    @Override
+    public void setBackgroundDrawable(Drawable background) {
+        if(BGHelper.drawableAdaptEnable(mHelper)){
+            Drawable drawable = BGHelper.drawableAdapt(this, background, mHelper);
+            super.setBackgroundDrawable(drawable);
+            preDrawable=null;
+        }else{
+            preDrawable=background;
+            super.setBackgroundDrawable(background);
+        }
+    }
+
+    private Drawable preImageDrawable;
+    @Override
+    public void setImageDrawable(@Nullable Drawable drawable) {
+        if(BGHelper.drawableAdaptEnable(mHelper)){
+            Drawable d = BGHelper.drawableAdapt(this, drawable, mHelper);
+            super.setImageDrawable(d);
+            preImageDrawable=null;
+        }else{
+            preImageDrawable=drawable;
+            super.setImageDrawable(drawable);
+        }
     }
 }

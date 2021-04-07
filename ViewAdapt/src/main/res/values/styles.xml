@@ -4,5 +4,6 @@
         <item name="uiDesignHeight">0px</item>
         <item name="uiAdaptWidth">true</item>
         <item name="uiAdaptEnable">true</item>
+        <item name="drawableAdaptEnable">true</item>
     </style>
 </resources>

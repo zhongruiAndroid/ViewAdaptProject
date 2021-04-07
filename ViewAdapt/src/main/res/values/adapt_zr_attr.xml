@@ -5,6 +5,7 @@
     <attr name="uiDesignHeight" format="dimension" />
     <attr name="uiAdaptWidth" format="boolean" />
     <attr name="uiAdaptEnable" format="boolean" />
+    <attr name="drawableAdaptEnable" format="boolean" />
     <attr name="autoAdaptScreenWidthHeight" format="boolean" />
 
 
@@ -48,6 +49,7 @@
         <attr name="uiAdaptEnable" />
 
         <attr name="autoAdaptScreenWidthHeight" />
+        <attr name="drawableAdaptEnable" />
 
 
         <attr name="adapt_padding" />
@@ -76,6 +78,8 @@
         <attr name="uiDesignHeight" />
         <attr name="uiAdaptWidth" />
         <attr name="uiAdaptEnable" />
+        <attr name="drawableAdaptEnable" />
+        <attr name="autoAdaptScreenWidthHeight" />
 
         <attr name="adapt_padding" />
         <attr name="adapt_paddingHorizontal" />
@@ -98,6 +102,8 @@
         <attr name="uiDesignHeight" />
         <attr name="uiAdaptWidth" />
         <attr name="uiAdaptEnable" />
+        <attr name="drawableAdaptEnable" />
+        <attr name="autoAdaptScreenWidthHeight" />
         <attr name="adapt_padding" />
         <attr name="adapt_paddingHorizontal" />
         <attr name="adapt_paddingVertical" />
@@ -119,6 +125,8 @@
         <attr name="uiDesignHeight" />
         <attr name="uiAdaptWidth" />
         <attr name="uiAdaptEnable" />
+        <attr name="drawableAdaptEnable" />
+        <attr name="autoAdaptScreenWidthHeight" />
         <attr name="adapt_padding" />
         <attr name="adapt_paddingHorizontal" />
         <attr name="adapt_paddingVertical" />
@@ -180,6 +188,8 @@
     </declare-styleable>
 
     <declare-styleable name="TextViewAdapt">
+        <attr name="drawableAdaptEnable" />
+        <attr name="autoAdaptScreenWidthHeight" />
         <attr name="adapt_padding" />
         <attr name="adapt_paddingHorizontal" />
         <attr name="adapt_paddingVertical" />
@@ -197,6 +207,8 @@
         <attr name="adapt_autoSizeMinTextSize" />
     </declare-styleable>
     <declare-styleable name="RadioGroupAdapt">
+        <attr name="drawableAdaptEnable" />
+        <attr name="autoAdaptScreenWidthHeight" />
         <attr name="adapt_padding" />
         <attr name="adapt_paddingHorizontal" />
         <attr name="adapt_paddingVertical" />
@@ -213,6 +225,8 @@
 
     </declare-styleable>
     <declare-styleable name="RadioButtonAdapt">
+        <attr name="drawableAdaptEnable" />
+        <attr name="autoAdaptScreenWidthHeight" />
         <attr name="adapt_padding" />
         <attr name="adapt_paddingHorizontal" />
         <attr name="adapt_paddingVertical" />
@@ -226,6 +240,8 @@
 
     </declare-styleable>
     <declare-styleable name="ImageViewAdapt">
+        <attr name="drawableAdaptEnable" />
+        <attr name="autoAdaptScreenWidthHeight" />
         <attr name="adapt_padding" />
         <attr name="adapt_paddingHorizontal" />
         <attr name="adapt_paddingVertical" />
@@ -239,6 +255,8 @@
 
     </declare-styleable>
     <declare-styleable name="ImageButtonAdapt">
+        <attr name="drawableAdaptEnable" />
+        <attr name="autoAdaptScreenWidthHeight" />
         <attr name="adapt_padding" />
         <attr name="adapt_paddingHorizontal" />
         <attr name="adapt_paddingVertical" />
@@ -252,6 +270,8 @@
 
     </declare-styleable>
     <declare-styleable name="EditTextAdapt">
+        <attr name="drawableAdaptEnable" />
+        <attr name="autoAdaptScreenWidthHeight" />
         <attr name="adapt_padding" />
         <attr name="adapt_paddingHorizontal" />
         <attr name="adapt_paddingVertical" />
@@ -269,6 +289,8 @@
         <attr name="adapt_autoSizeMinTextSize" />
     </declare-styleable>
     <declare-styleable name="CheckBoxAdapt">
+        <attr name="drawableAdaptEnable" />
+        <attr name="autoAdaptScreenWidthHeight" />
         <attr name="adapt_padding" />
         <attr name="adapt_paddingHorizontal" />
         <attr name="adapt_paddingVertical" />

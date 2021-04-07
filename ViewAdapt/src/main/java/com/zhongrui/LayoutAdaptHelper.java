@@ -51,6 +51,7 @@ public class LayoutAdaptHelper {
     public int uiDesignHeight;
     public boolean uiAdaptWidth;
     public boolean uiAdaptEnable;
+    public boolean drawableAdaptEnable;
     public boolean autoAdaptScreenWidthHeight;
 
     public int selfWidth;
@@ -95,7 +96,6 @@ public class LayoutAdaptHelper {
         uiDesignHeight = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_uiDesignHeight, 0);
         uiAdaptWidth = typedArray.getBoolean(R.styleable.zhongruiAdapt_uiAdaptWidth, true);
         uiAdaptEnable = typedArray.getBoolean(R.styleable.zhongruiAdapt_uiAdaptEnable, true);
-        autoAdaptScreenWidthHeight = typedArray.getBoolean(R.styleable.zhongruiAdapt_autoAdaptScreenWidthHeight, true);
 
         selfWidth = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_layout_adapt_width, -1);
         selfHeight = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_layout_adapt_height, -1);
@@ -148,6 +148,8 @@ public class LayoutAdaptHelper {
     }
 
     public void obtainStyledAttributesForView(View view, TypedArray typedArray) {
+        autoAdaptScreenWidthHeight = typedArray.getBoolean(R.styleable.zhongruiAdapt_autoAdaptScreenWidthHeight, true);
+        drawableAdaptEnable = typedArray.getBoolean(R.styleable.zhongruiAdapt_drawableAdaptEnable, true);
         if (view instanceof AdaptLayout) {
             adapt_padding = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_padding, -1);
             if (adapt_padding >= 0) {
@@ -233,6 +235,10 @@ public class LayoutAdaptHelper {
         }
         contentViewWidth = View.MeasureSpec.getSize(widthMeasureSpec);
         contentViewHeight = View.MeasureSpec.getSize(heightMeasureSpec);
+        if (view instanceof LayoutAdaptHelper.AdaptLayout) {
+            /*将contentviewSize传给自己，保证view的setContentViewSize方法被调用*/
+            ((LayoutAdaptHelper.AdaptLayout) view).setContentViewSize(contentViewWidth, contentViewHeight);
+        }
     }
 
     public void setContentViewSize(int width, int height) {
@@ -253,7 +259,7 @@ public class LayoutAdaptHelper {
             }
             if (view instanceof LayoutAdaptHelper.AdaptLayout) {
                 /*将contentviewSize传给子viewgroup*/
-                ((LayoutAdaptHelper.AdaptLayout) view).setContentViewSize(contentViewWidth,contentViewHeight);
+                ((LayoutAdaptHelper.AdaptLayout) view).setContentViewSize(contentViewWidth, contentViewHeight);
             }
             ViewGroup.LayoutParams params = view.getLayoutParams();
             if (params instanceof LayoutAdaptHelper.LayoutAdaptParams) {
@@ -275,9 +281,14 @@ public class LayoutAdaptHelper {
         return view.getContext().getResources().getDisplayMetrics().heightPixels;
     }
 
+    private static int statusBarHeight = -1;
+
     public static int getStatusBarHeight(Context context) {
+        if (statusBarHeight >= 0) {
+            return statusBarHeight;
+        }
         int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
-        int statusBarHeight = (resourceId > 0) ? context.getResources().getDimensionPixelSize(resourceId) : 0;
+        statusBarHeight = (resourceId > 0) ? context.getResources().getDimensionPixelSize(resourceId) : 0;
         return statusBarHeight;
     }
 
@@ -334,7 +345,10 @@ public class LayoutAdaptHelper {
     }
 
     /*根据设计稿上面view宽高的标注换算成实际屏幕绘制的宽高*/
-    public float getRealSize(View view, int uiSize) {
+    public float getRealSize(View view, float uiSize) {
+        if (uiSize == 0) {
+            return uiSize;
+        }
         float referenceUISize = getReferenceUISize();
         if (referenceUISize == 0) {
             return uiSize;
