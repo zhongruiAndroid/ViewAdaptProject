@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
         btTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(TestActivity.class);
+                Toast.makeText(getApplicationContext(),"test",Toast.LENGTH_SHORT).show();
+//                startActivity(TestActivity.class);
             }
         });
         View btTest2 = findViewById(R.id.btTest2);

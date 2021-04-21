@@ -10,7 +10,37 @@
     app:uiDesignHeight="1000dp"
     app:uiDesignWidth="1000dp"
     tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="测试1fδÀjklgjλi"
+            android:textSize="20sp"
+            android:background="@color/colorPrimary"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="71px"
+            android:text="测试2"
+            android:textSize="20sp"
+            android:background="@color/colorAccent"
+            />
+        <com.test.viewadapt.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="测试22"
+            android:textSize="20sp"
+            android:background="#B59BEF"
+            android:layout_margin="10dp"
+            />
+
+    </LinearLayout>
     <Button
         android:id="@+id/btTest"
         android:layout_width="match_parent"
