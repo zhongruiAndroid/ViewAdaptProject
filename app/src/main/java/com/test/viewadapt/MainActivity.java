@@ -21,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
         btTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"test",Toast.LENGTH_SHORT).show();
-//                startActivity(TestActivity.class);
+//                Toast.makeText(getApplicationContext(),"test",Toast.LENGTH_SHORT).show();
+                startActivity(TestActivity.class);
             }
         });
         View btTest2 = findViewById(R.id.btTest2);
