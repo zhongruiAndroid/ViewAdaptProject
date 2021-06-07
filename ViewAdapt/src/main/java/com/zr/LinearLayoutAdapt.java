@@ -1,4 +1,4 @@
-package com.zhongrui;
+package com.zr;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -8,35 +8,35 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 
-import com.zhongrui.helper.BGHelper;
+import com.zr.helper.BGHelper;
 
 import static android.os.Build.VERSION_CODES.JELLY_BEAN_MR1;
 
-public class RelativeLayoutAdapt extends RelativeLayout implements LayoutAdaptHelper.AdaptLayout {
-    private LayoutAdaptHelper mHelper = new LayoutAdaptHelper( );
+public class LinearLayoutAdapt extends LinearLayout implements LayoutAdaptHelper.AdaptLayout {
+    private LayoutAdaptHelper mHelper = new LayoutAdaptHelper();
 
     /*需要判断状态栏是否隐藏*/
-    public RelativeLayoutAdapt(@NonNull Context context) {
+    public LinearLayoutAdapt(@NonNull Context context) {
         super(context);
-        mHelper.init(this,null, R.attr.LayoutAdaptAttr, R.style.LayoutAdaptStyle);
+        mHelper.init(this, null, R.attr.LayoutAdaptAttr, R.style.LayoutAdaptStyle);
     }
 
-    public RelativeLayoutAdapt(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public LinearLayoutAdapt(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        mHelper.init(this,attrs, R.attr.LayoutAdaptAttr, R.style.LayoutAdaptStyle);
+        mHelper.init(this, attrs, R.attr.LayoutAdaptAttr, R.style.LayoutAdaptStyle);
     }
 
-    public RelativeLayoutAdapt(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public LinearLayoutAdapt(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        mHelper.init(this,attrs, defStyleAttr, R.style.LayoutAdaptStyle);
+        mHelper.init(this, attrs, defStyleAttr, R.style.LayoutAdaptStyle);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    public RelativeLayoutAdapt(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public LinearLayoutAdapt(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        mHelper.init(this,attrs, defStyleAttr, defStyleRes);
+        mHelper.init(this, attrs, defStyleAttr, defStyleRes);
     }
 
     @Override
@@ -68,6 +68,7 @@ public class RelativeLayoutAdapt extends RelativeLayout implements LayoutAdaptHe
             super.setBackgroundDrawable(background);
         }
     }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         if (mHelper.canUseAdapt()) {
@@ -118,7 +119,7 @@ public class RelativeLayoutAdapt extends RelativeLayout implements LayoutAdaptHe
 
     @Override
     protected LayoutParams generateDefaultLayoutParams() {
-        return new LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+        return new LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
     }
 
     @Override
@@ -127,7 +128,7 @@ public class RelativeLayoutAdapt extends RelativeLayout implements LayoutAdaptHe
     }
 
     @Override
-    protected ViewGroup.LayoutParams generateLayoutParams(ViewGroup.LayoutParams lp) {
+    protected LayoutParams generateLayoutParams(ViewGroup.LayoutParams lp) {
         if (lp instanceof LayoutParams) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 return new LayoutParams((LayoutParams) lp);
@@ -138,7 +139,7 @@ public class RelativeLayoutAdapt extends RelativeLayout implements LayoutAdaptHe
         return new LayoutParams(lp);
     }
 
-    public static class LayoutParams extends RelativeLayout.LayoutParams implements LayoutAdaptHelper.LayoutAdaptParams {
+    public static class LayoutParams extends LinearLayout.LayoutParams implements LayoutAdaptHelper.LayoutAdaptParams {
         private LayoutParamsInfo info;
 
         public LayoutParams(@NonNull Context c, @Nullable AttributeSet attrs) {
@@ -146,12 +147,16 @@ public class RelativeLayoutAdapt extends RelativeLayout implements LayoutAdaptHe
             getLayoutAdaptInfo().getAttributeSet(c, attrs);
         }
 
-        public LayoutParams(int w, int h) {
-            super(w, h);
+        public LayoutParams(int width, int height) {
+            super(width, height);
         }
 
-        public LayoutParams(ViewGroup.LayoutParams source) {
-            super(source);
+        public LayoutParams(int width, int height, float weight) {
+            super(width, height, weight);
+        }
+
+        public LayoutParams(ViewGroup.LayoutParams p) {
+            super(p);
         }
 
         public LayoutParams(MarginLayoutParams source) {
@@ -159,7 +164,7 @@ public class RelativeLayoutAdapt extends RelativeLayout implements LayoutAdaptHe
         }
 
         @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-        public LayoutParams(RelativeLayout.LayoutParams source) {
+        public LayoutParams(LinearLayout.LayoutParams source) {
             super(source);
         }
 

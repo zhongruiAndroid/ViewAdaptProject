@@ -1,4 +1,4 @@
-package com.zhongrui;
+package com.zr;
 
 import android.content.Context;
 import android.content.res.TypedArray;

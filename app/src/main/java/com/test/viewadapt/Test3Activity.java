@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.zhongrui.FrameLayoutAdapt;
-import com.zhongrui.TextViewAdapt;
+import com.zr.FrameLayoutAdapt;
+import com.zr.TextViewAdapt;
 
 public class Test3Activity extends AppCompatActivity {
 

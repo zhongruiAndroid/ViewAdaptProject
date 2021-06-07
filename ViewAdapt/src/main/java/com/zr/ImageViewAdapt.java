@@ -1,31 +1,31 @@
-package com.zhongrui;
+package com.zr;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
-import android.support.v7.widget.AppCompatImageButton;
+import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.zhongrui.helper.BGHelper;
+import com.zr.helper.BGHelper;
 
 import static android.os.Build.VERSION_CODES.JELLY_BEAN_MR1;
 
-public class ImageButtonAdapt extends AppCompatImageButton implements  LayoutAdaptHelper.AdaptView {
+public class ImageViewAdapt extends AppCompatImageView implements  LayoutAdaptHelper.AdaptView {
     private LayoutAdaptHelper mHelper = new LayoutAdaptHelper();
 
-    public ImageButtonAdapt(Context context) {
+    public ImageViewAdapt(Context context) {
         super(context);
         mHelper.init(this, null, R.attr.LayoutAdaptAttr, R.style.LayoutAdaptStyle);
     }
 
-    public ImageButtonAdapt(Context context, AttributeSet attrs) {
+    public ImageViewAdapt(Context context, AttributeSet attrs) {
         super(context, attrs);
         mHelper.init(this, attrs, R.attr.LayoutAdaptAttr, R.style.LayoutAdaptStyle);
     }
 
-    public ImageButtonAdapt(Context context, AttributeSet attrs, int defStyleAttr) {
+    public ImageViewAdapt(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mHelper.init(this, attrs, defStyleAttr, R.style.LayoutAdaptStyle);
     }

@@ -1,4 +1,4 @@
-package com.zhongrui;
+package com.zr;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -7,7 +7,7 @@ import android.support.v7.widget.AppCompatRadioButton;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.zhongrui.helper.BGHelper;
+import com.zr.helper.BGHelper;
 
 import static android.os.Build.VERSION_CODES.JELLY_BEAN_MR1;
 

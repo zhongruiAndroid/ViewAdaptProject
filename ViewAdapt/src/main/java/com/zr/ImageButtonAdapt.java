@@ -1,48 +1,46 @@
-package com.zhongrui;
+package com.zr;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
-import android.support.v7.widget.AppCompatEditText;
+import android.support.v7.widget.AppCompatImageButton;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.zhongrui.helper.BGHelper;
+import com.zr.helper.BGHelper;
 
 import static android.os.Build.VERSION_CODES.JELLY_BEAN_MR1;
 
-public class EditTextAdapt extends AppCompatEditText implements LayoutAdaptHelper.AdaptView , LayoutAdaptHelper.AdaptSize {
+public class ImageButtonAdapt extends AppCompatImageButton implements  LayoutAdaptHelper.AdaptView {
     private LayoutAdaptHelper mHelper = new LayoutAdaptHelper();
 
-    public EditTextAdapt(Context context) {
+    public ImageButtonAdapt(Context context) {
         super(context);
         mHelper.init(this, null, R.attr.LayoutAdaptAttr, R.style.LayoutAdaptStyle);
     }
 
-    public EditTextAdapt(Context context, AttributeSet attrs) {
+    public ImageButtonAdapt(Context context, AttributeSet attrs) {
         super(context, attrs);
         mHelper.init(this, attrs, R.attr.LayoutAdaptAttr, R.style.LayoutAdaptStyle);
     }
 
-    public EditTextAdapt(Context context, AttributeSet attrs, int defStyleAttr) {
+    public ImageButtonAdapt(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mHelper.init(this, attrs, defStyleAttr, R.style.LayoutAdaptStyle);
     }
-
 
     public void setPaddingAdapt(int left, int top, int right, int bottom) {
         if (mHelper.canUseAdapt()) {
             super.setPadding(mHelper.getRealSizeInt(this, left), mHelper.getRealSizeInt(this, top), mHelper.getRealSizeInt(this, right), mHelper.getRealSizeInt(this, bottom));
         }
     }
-
     @RequiresApi(api = JELLY_BEAN_MR1)
     public void setPaddingRelativeAdapt(int start, int top, int end, int bottom) {
         if (mHelper.canUseAdapt()) {
             super.setPaddingRelative(mHelper.getRealSizeInt(this, start), mHelper.getRealSizeInt(this, top), mHelper.getRealSizeInt(this, end), mHelper.getRealSizeInt(this, bottom));
         }
     }
-
     @Override
     public void setUiDesign(View view, int uiWidth, int uiHeight, boolean useAdaptWidth, boolean adaptEnable) {
         mHelper.setUiDesign(view, uiWidth, uiHeight, useAdaptWidth, adaptEnable);
@@ -62,6 +60,7 @@ public class EditTextAdapt extends AppCompatEditText implements LayoutAdaptHelpe
     public void setContentViewSize(int width, int height) {
         mHelper.setContentViewSize(width, height);
         BGHelper.resetDrawable(this,preDrawable);
+        BGHelper.resetImageDrawable(this,preImageDrawable);
     }
 
     private Drawable preDrawable;
@@ -75,6 +74,19 @@ public class EditTextAdapt extends AppCompatEditText implements LayoutAdaptHelpe
         }else{
             preDrawable=background;
             super.setBackgroundDrawable(background);
+        }
+    }
+
+    private Drawable preImageDrawable;
+    @Override
+    public void setImageDrawable(@Nullable Drawable drawable) {
+        if(BGHelper.drawableAdaptEnable(mHelper)){
+            Drawable d = BGHelper.drawableAdapt(this, drawable, mHelper);
+            super.setImageDrawable(d);
+            preImageDrawable=null;
+        }else{
+            preImageDrawable=drawable;
+            super.setImageDrawable(drawable);
         }
     }
 }

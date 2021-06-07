@@ -1,31 +1,30 @@
-package com.zhongrui;
+package com.zr;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
-import android.support.v7.widget.AppCompatImageView;
+import android.support.v7.widget.AppCompatCheckBox;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.zhongrui.helper.BGHelper;
+import com.zr.helper.BGHelper;
 
 import static android.os.Build.VERSION_CODES.JELLY_BEAN_MR1;
 
-public class ImageViewAdapt extends AppCompatImageView implements  LayoutAdaptHelper.AdaptView {
+public class CheckBoxAdapt extends AppCompatCheckBox implements  LayoutAdaptHelper.AdaptView , LayoutAdaptHelper.AdaptSize {
     private LayoutAdaptHelper mHelper = new LayoutAdaptHelper();
 
-    public ImageViewAdapt(Context context) {
+    public CheckBoxAdapt(Context context) {
         super(context);
         mHelper.init(this, null, R.attr.LayoutAdaptAttr, R.style.LayoutAdaptStyle);
     }
 
-    public ImageViewAdapt(Context context, AttributeSet attrs) {
+    public CheckBoxAdapt(Context context, AttributeSet attrs) {
         super(context, attrs);
         mHelper.init(this, attrs, R.attr.LayoutAdaptAttr, R.style.LayoutAdaptStyle);
     }
 
-    public ImageViewAdapt(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CheckBoxAdapt(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mHelper.init(this, attrs, defStyleAttr, R.style.LayoutAdaptStyle);
     }
@@ -35,6 +34,7 @@ public class ImageViewAdapt extends AppCompatImageView implements  LayoutAdaptHe
             super.setPadding(mHelper.getRealSizeInt(this, left), mHelper.getRealSizeInt(this, top), mHelper.getRealSizeInt(this, right), mHelper.getRealSizeInt(this, bottom));
         }
     }
+
     @RequiresApi(api = JELLY_BEAN_MR1)
     public void setPaddingRelativeAdapt(int start, int top, int end, int bottom) {
         if (mHelper.canUseAdapt()) {
@@ -60,7 +60,6 @@ public class ImageViewAdapt extends AppCompatImageView implements  LayoutAdaptHe
     public void setContentViewSize(int width, int height) {
         mHelper.setContentViewSize(width, height);
         BGHelper.resetDrawable(this,preDrawable);
-        BGHelper.resetImageDrawable(this,preImageDrawable);
     }
 
     private Drawable preDrawable;
@@ -74,19 +73,6 @@ public class ImageViewAdapt extends AppCompatImageView implements  LayoutAdaptHe
         }else{
             preDrawable=background;
             super.setBackgroundDrawable(background);
-        }
-    }
-
-    private Drawable preImageDrawable;
-    @Override
-    public void setImageDrawable(@Nullable Drawable drawable) {
-        if(BGHelper.drawableAdaptEnable(mHelper)){
-            Drawable d = BGHelper.drawableAdapt(this, drawable, mHelper);
-            super.setImageDrawable(d);
-            preImageDrawable=null;
-        }else{
-            preImageDrawable=drawable;
-            super.setImageDrawable(drawable);
         }
     }
 }

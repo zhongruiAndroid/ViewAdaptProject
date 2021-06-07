@@ -1,4 +1,4 @@
-package com.zhongrui.helper;
+package com.zr.helper;
 
 import android.graphics.DashPathEffect;
 import android.graphics.Paint;
@@ -11,7 +11,7 @@ import android.os.Build;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.zhongrui.LayoutAdaptHelper;
+import com.zr.LayoutAdaptHelper;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
