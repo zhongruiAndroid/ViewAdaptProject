@@ -40,7 +40,7 @@
     <attr name="ignoreAdaptHeight" format="dimension" />
     <attr name="ignoreAdaptWidth" format="dimension" />
 
-    <declare-styleable name="zhongruiAdapt">
+    <declare-styleable name="zrAdapt">
         <attr name="layout_adapt_width" />
         <attr name="layout_adapt_height" />
         <attr name="uiDesignWidth" />

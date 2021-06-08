@@ -91,18 +91,18 @@ public class LayoutAdaptHelper {
         if (view == null) {
             return;
         }
-        TypedArray typedArray = view.getContext().obtainStyledAttributes(attrs, R.styleable.zhongruiAdapt, defStyleAttr, defStyleRes);
-        uiDesignWidth = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_uiDesignWidth, 0);
-        uiDesignHeight = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_uiDesignHeight, 0);
-        uiAdaptWidth = typedArray.getBoolean(R.styleable.zhongruiAdapt_uiAdaptWidth, true);
-        uiAdaptEnable = typedArray.getBoolean(R.styleable.zhongruiAdapt_uiAdaptEnable, true);
+        TypedArray typedArray = view.getContext().obtainStyledAttributes(attrs, R.styleable.zrAdapt, defStyleAttr, defStyleRes);
+        uiDesignWidth = typedArray.getDimensionPixelOffset(R.styleable.zrAdapt_uiDesignWidth, 0);
+        uiDesignHeight = typedArray.getDimensionPixelOffset(R.styleable.zrAdapt_uiDesignHeight, 0);
+        uiAdaptWidth = typedArray.getBoolean(R.styleable.zrAdapt_uiAdaptWidth, true);
+        uiAdaptEnable = typedArray.getBoolean(R.styleable.zrAdapt_uiAdaptEnable, true);
 
-        selfWidth = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_layout_adapt_width, -1);
-        selfHeight = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_layout_adapt_height, -1);
+        selfWidth = typedArray.getDimensionPixelOffset(R.styleable.zrAdapt_layout_adapt_width, -1);
+        selfHeight = typedArray.getDimensionPixelOffset(R.styleable.zrAdapt_layout_adapt_height, -1);
 
-        adapt_include_status_bar_height = typedArray.getBoolean(R.styleable.zhongruiAdapt_adapt_include_status_bar_height, false);
-        ignoreAdaptWidth = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_ignoreAdaptWidth, 0);
-        ignoreAdaptHeight = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_ignoreAdaptHeight, 0);
+        adapt_include_status_bar_height = typedArray.getBoolean(R.styleable.zrAdapt_adapt_include_status_bar_height, false);
+        ignoreAdaptWidth = typedArray.getDimensionPixelOffset(R.styleable.zrAdapt_ignoreAdaptWidth, 0);
+        ignoreAdaptHeight = typedArray.getDimensionPixelOffset(R.styleable.zrAdapt_ignoreAdaptHeight, 0);
 
         obtainStyledAttributesForView(view, typedArray);
 
@@ -115,7 +115,7 @@ public class LayoutAdaptHelper {
         if (view == null) {
             return;
         }
-        TypedArray typedArray = view.getContext().obtainStyledAttributes(attrs, R.styleable.zhongruiAdapt, defStyleAttr, defStyleRes);
+        TypedArray typedArray = view.getContext().obtainStyledAttributes(attrs, R.styleable.zrAdapt, defStyleAttr, defStyleRes);
         obtainStyledAttributesForView(view, typedArray);
         typedArray.recycle();
     }
@@ -148,10 +148,10 @@ public class LayoutAdaptHelper {
     }
 
     public void obtainStyledAttributesForView(View view, TypedArray typedArray) {
-        autoAdaptScreenWidthHeight = typedArray.getBoolean(R.styleable.zhongruiAdapt_autoAdaptScreenWidthHeight, true);
-        drawableAdaptEnable = typedArray.getBoolean(R.styleable.zhongruiAdapt_drawableAdaptEnable, true);
+        autoAdaptScreenWidthHeight = typedArray.getBoolean(R.styleable.zrAdapt_autoAdaptScreenWidthHeight, true);
+        drawableAdaptEnable = typedArray.getBoolean(R.styleable.zrAdapt_drawableAdaptEnable, true);
         if (view instanceof AdaptLayout) {
-            adapt_padding = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_padding, -1);
+            adapt_padding = typedArray.getDimensionPixelOffset(R.styleable.zrAdapt_adapt_padding, -1);
             if (adapt_padding >= 0) {
                 adapt_paddingHorizontal = adapt_padding;
                 adapt_paddingVertical = adapt_padding;
@@ -165,18 +165,18 @@ public class LayoutAdaptHelper {
                     adapt_paddingEnd = adapt_padding;
                 }
             } else {
-                adapt_paddingHorizontal = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingHorizontal, 0);
-                adapt_paddingVertical = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingVertical, 0);
-                adapt_paddingLeft = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingLeft, adapt_paddingHorizontal);
-                adapt_paddingTop = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingTop, adapt_paddingVertical);
-                adapt_paddingRight = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingRight, adapt_paddingHorizontal);
-                adapt_paddingBottom = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingBottom, adapt_paddingVertical);
+                adapt_paddingHorizontal = typedArray.getDimensionPixelOffset(R.styleable.zrAdapt_adapt_paddingHorizontal, 0);
+                adapt_paddingVertical = typedArray.getDimensionPixelOffset(R.styleable.zrAdapt_adapt_paddingVertical, 0);
+                adapt_paddingLeft = typedArray.getDimensionPixelOffset(R.styleable.zrAdapt_adapt_paddingLeft, adapt_paddingHorizontal);
+                adapt_paddingTop = typedArray.getDimensionPixelOffset(R.styleable.zrAdapt_adapt_paddingTop, adapt_paddingVertical);
+                adapt_paddingRight = typedArray.getDimensionPixelOffset(R.styleable.zrAdapt_adapt_paddingRight, adapt_paddingHorizontal);
+                adapt_paddingBottom = typedArray.getDimensionPixelOffset(R.styleable.zrAdapt_adapt_paddingBottom, adapt_paddingVertical);
 
             }
 
             if (Build.VERSION.SDK_INT >= JELLY_BEAN_MR1) {
-                adapt_paddingStart = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingStart, -1);
-                adapt_paddingEnd = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_paddingEnd, -1);
+                adapt_paddingStart = typedArray.getDimensionPixelOffset(R.styleable.zrAdapt_adapt_paddingStart, -1);
+                adapt_paddingEnd = typedArray.getDimensionPixelOffset(R.styleable.zrAdapt_adapt_paddingEnd, -1);
 
                 if (adapt_paddingStart >= 0) {
                     adapt_paddingLeft = adapt_paddingStart;
@@ -189,10 +189,10 @@ public class LayoutAdaptHelper {
 
         }
         if (view instanceof AdaptSize) {
-            adapt_textSize = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_textSize, -1);
-            adapt_autoSizeMaxTextSize = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_autoSizeMaxTextSize, -1);
-            adapt_autoSizeMinTextSize = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_autoSizeMinTextSize, -1);
-            adapt_autoSizeStepGranularity = typedArray.getDimensionPixelOffset(R.styleable.zhongruiAdapt_adapt_autoSizeStepGranularity, -1);
+            adapt_textSize = typedArray.getDimensionPixelOffset(R.styleable.zrAdapt_adapt_textSize, -1);
+            adapt_autoSizeMaxTextSize = typedArray.getDimensionPixelOffset(R.styleable.zrAdapt_adapt_autoSizeMaxTextSize, -1);
+            adapt_autoSizeMinTextSize = typedArray.getDimensionPixelOffset(R.styleable.zrAdapt_adapt_autoSizeMinTextSize, -1);
+            adapt_autoSizeStepGranularity = typedArray.getDimensionPixelOffset(R.styleable.zrAdapt_adapt_autoSizeStepGranularity, -1);
             setSizeAdapt(view);
         }
     }

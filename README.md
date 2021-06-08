@@ -58,11 +58,11 @@
 ```
 ##### style设置属性
 ```xml
-<com.zhongrui.FrameLayoutAdapt
+<com.zr.FrameLayoutAdapt
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/testStyle">
-</com.zhongrui.FrameLayoutAdapt>
+</com.zr.FrameLayoutAdapt>
 
 <style name="testStyle">
      <item name="uiAdaptEnable">true</item>
@@ -71,7 +71,7 @@
 ```
 #### xml设置属性
 ```xml
-<com.zhongrui.FrameLayoutAdapt
+<com.zr.FrameLayoutAdapt
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       app:uiAdaptWidth="true"
