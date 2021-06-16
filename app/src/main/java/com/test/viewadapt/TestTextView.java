@@ -2,12 +2,10 @@ package com.test.viewadapt;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.TypedValue;
-import android.widget.TextView;
 
-public class TestTextView extends android.support.v7.widget.AppCompatTextView {
+public class TestTextView extends androidx.appcompat.widget.AppCompatTextView {
 
     public TestTextView(Context context) {
         super(context);

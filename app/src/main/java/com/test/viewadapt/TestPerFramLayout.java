@@ -1,7 +1,7 @@
 package com.test.viewadapt;
 
 import android.content.Context;
-import android.support.percent.PercentFrameLayout;
+import androidx.percentlayout.widget.PercentFrameLayout;
 import android.util.AttributeSet;
 
 public class TestPerFramLayout extends PercentFrameLayout {

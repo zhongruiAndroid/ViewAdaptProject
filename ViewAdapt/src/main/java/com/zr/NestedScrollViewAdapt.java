@@ -3,10 +3,10 @@ package com.zr;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
-import android.support.v4.widget.NestedScrollView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.core.widget.NestedScrollView;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 

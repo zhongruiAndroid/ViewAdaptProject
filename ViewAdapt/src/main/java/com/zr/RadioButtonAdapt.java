@@ -2,8 +2,8 @@ package com.zr;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.RequiresApi;
-import android.support.v7.widget.AppCompatRadioButton;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.widget.AppCompatRadioButton;
 import android.util.AttributeSet;
 import android.view.View;
 
