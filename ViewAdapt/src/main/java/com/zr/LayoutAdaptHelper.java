@@ -15,8 +15,11 @@ import static android.os.Build.VERSION_CODES.JELLY_BEAN_MR1;
 
 public class LayoutAdaptHelper {
     public interface AdaptLayout {
-        void setPaddingAdapt(int left, int top, int right, int bottom);
+        void setPadding(int left, int top, int right, int bottom);
+        @RequiresApi(api = JELLY_BEAN_MR1)
+        void setPaddingRelative(int start, int top, int end, int bottom);
 
+        void setPaddingAdapt(int left, int top, int right, int bottom);
         @RequiresApi(api = JELLY_BEAN_MR1)
         void setPaddingRelativeAdapt(int start, int top, int end, int bottom);
 
@@ -198,10 +201,13 @@ public class LayoutAdaptHelper {
     }
 
     private void setPaddingAdapt(View view) {
+        if(adapt_paddingLeft==0&&adapt_paddingTop==0&&adapt_paddingRight==0&&adapt_paddingBottom==0){
+            return;
+        }
         if (Build.VERSION.SDK_INT >= JELLY_BEAN_MR1) {
-            ((AdaptLayout) view).setPaddingRelativeAdapt(adapt_paddingLeft, adapt_paddingTop, adapt_paddingRight, adapt_paddingBottom);
+            ((AdaptLayout) view).setPaddingRelative(getRealSizeInt(view, adapt_paddingLeft), getRealSizeInt(view, adapt_paddingTop), getRealSizeInt(view, adapt_paddingRight), getRealSizeInt(view, adapt_paddingBottom));
         } else {
-            ((AdaptLayout) view).setPaddingAdapt(adapt_paddingLeft, adapt_paddingTop, adapt_paddingRight, adapt_paddingBottom);
+            ((AdaptLayout) view).setPadding(getRealSizeInt(view, adapt_paddingLeft), getRealSizeInt(view, adapt_paddingTop), getRealSizeInt(view, adapt_paddingRight), getRealSizeInt(view, adapt_paddingBottom));
         }
     }
 
