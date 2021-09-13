@@ -25,6 +25,8 @@
     <attr name="adapt_autoSizeMaxTextSize" format="dimension" />
     <attr name="adapt_autoSizeMinTextSize" format="dimension" />
 
+    <attr name="isXmlFirstOutsideLayout" format="boolean" />
+
 
     <!--layout-attr-->
     <attr name="layout_adapt_width" format="dimension" />
@@ -70,6 +72,7 @@
         <attr name="adapt_autoSizeStepGranularity" />
         <attr name="adapt_autoSizeMaxTextSize" />
         <attr name="adapt_autoSizeMinTextSize" />
+        <attr name="isXmlFirstOutsideLayout" />
     </declare-styleable>
     <declare-styleable name="FrameLayoutAdapt">
         <attr name="layout_adapt_width" />
@@ -93,6 +96,7 @@
         <attr name="adapt_include_status_bar_height" />
         <attr name="ignoreAdaptHeight" />
         <attr name="ignoreAdaptWidth" />
+        <attr name="isXmlFirstOutsideLayout" />
     </declare-styleable>
 
     <declare-styleable name="LinearLayoutAdapt">
@@ -116,6 +120,7 @@
         <attr name="adapt_include_status_bar_height" />
         <attr name="ignoreAdaptHeight" />
         <attr name="ignoreAdaptWidth" />
+        <attr name="isXmlFirstOutsideLayout" />
     </declare-styleable>
 
     <declare-styleable name="RelativeLayoutAdapt">
@@ -139,6 +144,7 @@
         <attr name="adapt_include_status_bar_height" />
         <attr name="ignoreAdaptHeight" />
         <attr name="ignoreAdaptWidth" />
+        <attr name="isXmlFirstOutsideLayout" />
     </declare-styleable>
 
 
@@ -221,6 +227,7 @@
         <attr name="adapt_include_status_bar_height" />
         <attr name="ignoreAdaptHeight" />
         <attr name="ignoreAdaptWidth" />
+        <attr name="isXmlFirstOutsideLayout" />
 
 
     </declare-styleable>
