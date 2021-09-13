@@ -76,6 +76,7 @@ public class LayoutAdaptHelper {
     public int adapt_autoSizeStepGranularity;
     public int adapt_autoSizeMaxTextSize;
     public int adapt_autoSizeMinTextSize;
+    public boolean isXmlFirstOutsideLayout=false;
     private boolean isEditMode;
 
     public void init(View view, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
@@ -106,6 +107,7 @@ public class LayoutAdaptHelper {
         adapt_include_status_bar_height = typedArray.getBoolean(R.styleable.zrAdapt_adapt_include_status_bar_height, false);
         ignoreAdaptWidth = typedArray.getDimensionPixelOffset(R.styleable.zrAdapt_ignoreAdaptWidth, 0);
         ignoreAdaptHeight = typedArray.getDimensionPixelOffset(R.styleable.zrAdapt_ignoreAdaptHeight, 0);
+        isXmlFirstOutsideLayout = typedArray.getBoolean(R.styleable.zrAdapt_isXmlFirstOutsideLayout, false);
 
         obtainStyledAttributesForView(view, typedArray);
 
@@ -236,7 +238,7 @@ public class LayoutAdaptHelper {
             return;
         }
         ViewGroup parentView = (ViewGroup) parent;
-        if (parentView.getId() != android.R.id.content) {
+        if (parentView.getId() != android.R.id.content&&!isXmlFirstOutsideLayout) {
             return;
         }
         contentViewWidth = View.MeasureSpec.getSize(widthMeasureSpec);
